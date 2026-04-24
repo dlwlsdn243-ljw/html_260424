@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        table 태그 : 표를 만들 때 사용하는 태그(표 전체 박스)
+        tr 태그 : table row의 약자로 "행"을 의미하는 태그 (한 행을 의미)
+        td 태그 : table data의 약자로 "열"을 의미하는 태그 (한 칸을 의미)
+        th 태그 : table header의 약자로 "열 제목"을 의미하는 태그(제목열, 가운데 정렬, 굵은글씨)
+
+        3*4테이블 생성
+        tr*3
+        tr => td*4
+        총 td = 3*4 = 12개
+
+        caption 태그 : 표의 제목을 나타내는 태그
+        - thead 태그 : 표의 제목 행을 그룹화하는 태그
+        - tbody 태그 : 표의 본문 행을 그룹화하는 태그
+        - tfoot 태그 : 표의 꼬리 행을 그룹화하는 태그 (내가 넣으면 있고 안넣으면 없는 태그)
+
+        - colspan : 열 병합
+        - rowspan : 행 병합
+    -->
+    <table border="1" width="50%">
+        <caption>title</caption>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>국어</th>
+                <th>영어</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1번</td>
+                <td>홍길동</td>
+                <td>78</td>
+                <td>89</td>
+            </tr>
+            <tr>
+                <td>2번</td>
+                <td>홍길동</td>
+                <td>78</td>
+                <td>89</td>
+            </tr>
+            <tr>
+                <td>3번</td>
+                <td>홍길동</td>
+                <td>78</td>
+                <td>89</td>
+            </tr>
+            <tr>
+                <td>4번</td>
+                <td>홍길동</td>
+                <td>78</td>
+                <td>89</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">합계</td>
+                <td>000</td>
+                <td>000</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <table border="1" width="50%">
+        <tr>
+            <td rowspan="2">1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+    </table>
+</body>
+</html>

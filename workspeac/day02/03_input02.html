@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <body>
+        <!-- 
+            input 속성
+            모든 태그는 자신의 속성값을 가지고 있음
+            속성명 = "값"속성명
+            name : 서버로 전송시 변수명으로 사용되는 속성
+            value : 서버로 전송시 값으로 사용되는 속성
+            id : 하나의 html 파일안에 중복값이 불가능 => js, css에서 태그들을 구분하는 용도
+                id가 겹쳐도 에러는 안남. 작동을 잘 하지 않거나 이상한 동작을 할 수 있음
+            class : js / css 구분자 역할 함. 중복가능 / 여러개 가능
+            class = "a b ab abc" => 4개의 클래스를 가짐. a b ab abc
+            readonly : 읽기전용, 서버로 값을 보냄
+            disabled : 비활성화, 서버로 값을 안보냄
+            required : 필수속성
+            checked : radio, checkbox에서 기본값으로 선택
+        -->
+            <form action="">
+                <input type="text" name="a" value="name" required> <br>
+                <input type="text" name="b" value="age" readonly> <br>
+                <input type="text" name="c" value="dis" disabled> <br>
+                <input type="text" name="d" placeholder="test"> <br>
+
+                <textarea name="e" id="" cols="30" rows="10">여기에 댓글을 입력해 주세됴.</textarea> <br>
+                <small>작은글자쓰기</small> 
+                <pre>
+                    공백을 인지함
+                    어떻게 인지하지?
+                </pre>
+
+                <input type="submit" value="submit">
+            </form>
+    </body>
+</html>

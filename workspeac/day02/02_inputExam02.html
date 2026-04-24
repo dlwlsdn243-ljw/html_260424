@@ -6,28 +6,31 @@
     <title>Document</title>
 </head>
     <body>
+        <h1>회원가입</h1>
         <input type="image" src="../image/강아지.jpg" alt="강아지 그림">
+        <hr>
 
         <form action="">
            아이디 : <input type="text" name="id" placeholder="아이디"> 
            <br>
            비밀번호 : <input type="password" name="password" placeholder="패스워드"> 
            <br>
-           비밀번호 확인 : <input type="password" name="password" placeholder="패스워드">
+           비밀번호 확인 : <input type="password"  placeholder="패스워드">
            <br>
            이메일 : <input type="email" name="email" placeholder="test@test.com">
            <br>
-            <label for="man">
-                성별 : <input type="radio" name="gender" id="man" value="남성" > 남성
+           성별 :
+            <label for="m">
+                 <input type="radio" name="gender" id="m" value="남성" > 남성
             </label>
 
-            <label for="woman">
-                <input type="radio" name="gender" id="woman" value="여성" > 여성
+            <label for="w">
+                <input type="radio" name="gender" id="w" value="여성" > 여성
             </label>
             <br>
-            전화번호 : <input type="number" value="" min="0" max="10">
-            - <input type="number" value="" min="0" max="10">
-            - <input type="number" value="" min="0" max="10">
+            전화번호 : <input type="number" name="phone1" >
+            - <input type="number" value="" name="phone2" >
+            - <input type="number" value="" name="phone3" >
             <br>
             <input type="submit" value="회원가입"> 
         </form>

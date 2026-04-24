@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <body>
+        <!-- 
+            a태그
+            - 다른 페이지로 이동하는 태그
+            - 쌍태그 안에 글자를 클릭하면 이동하게 됨
+
+            - href="이동할 주소"
+                - 이동할 url 값이 없으면 현재 페이지에서 새로굄
+                - 속성값에 http:// url로 인식, 없으면 파일로 인식 => 내 폴더 안에서 파일을 검색
+
+                - tel: 전화번호로 연결. 모바일에서 주로 사용
+
+                - mailto : 이메일로 연결
+
+            - target 속성
+                - _self : 기본값, 현재 화면에서 링크를 새로 연결
+                - _blank : 새창에서 링크를 연결
+                - _parent : 부모창에서 링크를 연결
+                  결제 창 처럼 팝업창이 뜨고(자식창) 팝업에 대한 값을 반영하여 원래 창(부모창)이 변경되는 경우
+                - _top : 최고조상에서 링크를 연결
+                  다중팝업이 뜰경우 메인창으로 값을 연결할 경우 사용
+                  부모x 조상x self와 동일
+            
+            - download : 링크를 클릭하면 파일을 다운로드
+                - 파일을 다운로드 할 경우
+                - herf 송성에 파일경로가 있고, download 속성이 있으면 다운로드가 됨
+        -->
+        <a href="">이 글자를 클릭하면 이동 (새로고침 self)</a><br>
+        <a href="http://www.naver.com" target="_blank">naver_blank (새로운 창으로 열림)</a><br>
+        <!-- http:// 가 없으면 파일로 인식 => 파일이 없으면 error-->
+        <a href="01_input02.html" target="_blank">01_input02.html</a><br>
+        <!-- download = "파일명" : 파일명이 없으면 기존 파일명과 같은 이름으로 다운로 -->
+        <a href="01_input02.html" target="_blank" download="">01_input02.download</a><br>
+        <a href="mailto:dlwlsdn243@naver.com">메일로 문의하기</a> 
+    </body>
+</html>

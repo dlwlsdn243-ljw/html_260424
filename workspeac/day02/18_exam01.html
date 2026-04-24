@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .naver{
+            color: aqua;
+        }
+        .google{
+            color: red;
+        }
+        .youtube{
+            color: blue;
+        }
+        .na{
+            color: green;
+        }
+        .go>a{
+            color: brown;
+        }
+        .you>a{
+            color: blueviolet;
+        }
+
+       
+    </style>
+</head>
+    <body>
+        <!-- div를 3개 만들어 naver, google, youtube 사이트에 각각 연결되게 하고 
+         각자 글자 색도 다르게 만들어 주기 color속성 
+        -->
+         <div >
+            <a href="http://www.naver.com" target="_blank" class="naver">네이버</a>
+         </div>
+
+         <div >
+            <a href="http://www.google.com" target="_blank" class="google">구글</a>
+         </div>
+
+         <div >
+            <a href="http://www.youtube.com" target="_blank" class="youtube">유튜브</a>
+         </div>
+
+
+         <a href="http://naver.com"><div class="na">naver</div></a>
+         <div class="go"><a href="httpL//google.com">google</a></div>
+         <div class="you"><a href="http://www.youtube.com">youtube</a></div>
+
+         <!-- 전체 글자 크기 20px font-size
+              짝수만 빨간색
+              3,6,9 : 초록색
+              1,10 : 굵게 font-weight:bold; 700
+           -->
+            <style>
+                ol>li{
+                font-size: 20px;   
+                }
+                ol>li:nth-child(even){
+                    color: red;
+                }
+                ol>li:nth-child(3n){
+                    color: green;
+                }
+                ol>li:first-child, li:last-child{
+                    font-weight: 700;
+                }
+            </style>
+         <ol>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+         </ol>
+    </body>
+</html>
