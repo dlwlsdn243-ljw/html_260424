@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <!-- 
+        font 지정
+        - 글꼴 / 크기 / 스타일 / 굵기
+        - font-family : 브라우저마다 지원하는 폰트가 다르고, 언어마다 달라서 폰트 묶음으로 설정
+            - 지정하려소 하는 폰트를 , 로 나열
+            - 한글 폰트인 경우 한글이름과, 영문이름 같이 사용
+            - 마지막 폰트는 기본형으로 지정(serif)
+            - 폰트명은 "" 안씀. 띄어쓰기가 있으면 "" 사용 "맑은 고딕", 굴림
+        - font-size : 글자크기
+        - font style : 밑줄, 기울림꼴, 최소선...
+        - font-weight : 굵기 100~900 100단위로 지정 (700정도 굵게 정도)
+        - font : 속성을 한번에 지정하는 경우
+        - font [sytle | weight] size family
+
+        fontgoogle 가뎌오기
+        <head> 안에 링크를 툳여서 사용한는 방식 : CDN 방식
+    -->
+        <style>
+            /* 다운로드 받은 폰트 사용 */
+            @font-face {
+                font-family:BlackHanSans-Regular ;
+                src: url(../font/Black_Han_Sans/BlackHanSans-Regular.ttf);
+            }
+
+            @font-face {
+                font-family:DoHyeon-Regular ;
+                src: url(../font/Do_Hyeon/DoHyeon-Regular.ttf);
+            }
+
+            @font-face {
+                font-family:NanumGothic ;
+                src: url(../font/Nanum_Gothic/NanumGothic-Bold.ttf);
+                font-weight: 400;            
+            }
+            
+            
+            @font-face {
+                font-family:NanumGothic ;
+                src: url(../font/Nanum_Gothic/NanumGothic-Bold.ttf);
+                font-weight: 700;            
+            }
+
+            @font-face {
+                font-family:NanumGothic ;
+                src: url(../font/Nanum_Gothic/NanumGothic-Bold.ttf);
+                font-weight: 800;
+            }
+
+            .font{
+                font-family: BlackHanSans-Regular, sans-serif;
+                font-weight: 400;
+                font-style: normal;
+            }
+        </style>
+</head>
+<body>
+    <div class="font">Hello CSS World~!!</div>
+</body>
+</html>

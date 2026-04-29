@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        border : 테두리
+        스타일, 두께, 색 => 같이 있어야 표현이 가능
+        위top 아래bottom 왼left 오른쪽right 별도 설정이 가능
+        border-radius : 테두리를 둥들게
+
+        border : 위+아래+왼+오
+        border - ?? - style : 테두리 스타일
+        border - ?? - width : 테두리 두께
+        border - ?? - color : 테두리 색
+        border - ?? - radius : 테두리를 둥글게
+        
+        box-shadow : 그림자
+            box-shadow: 수평 수직 [번짐정도 | 그림자크기] 색상[방향]
+            inset : 안쪽방향 그림자
+    -->
+        <style>
+            .box{
+                width: 100px;
+                height: 100px;
+                background-color: aqua;
+                text-align: center;
+                line-height: 100px;
+                border: 2px solid black;
+                box-shadow: 5px 5px 5px gray;
+            }
+            .box1{
+                border-top-left-radius :  10px;
+                border-top-right-radius :  10px;
+                border-bottom: none;
+            }
+
+            .box2{
+                border-top: none;
+                border-bottom: none;
+            }
+
+            .box3{
+                border-bottom-left-radius :  10px;
+                border-bottom-right-radius :  10px;
+                border-top: none;
+            }
+
+        </style>
+</head>
+    <body>
+        <div class="box box1">hello</div>
+        <div class="box box2">hello</div>
+        <div class="box box3">hello</div>
+    </body>
+</html>

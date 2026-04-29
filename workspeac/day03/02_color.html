@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        색상 관련 속성
+        - color : 글자색
+        - background-color : 배경색
+        - border-color : 테두리 색
+
+        색상 지정 방법
+        - 이미 지정된 이름 사용하는 방법 : red, yello등
+        - 색상 코드를 이용하는 방법 : 16진수 색상코드 #03c75a
+        - 색상 팔레트를 이용하는 벙법
+            - rgb (0,0,0) 코드를 이용하는 방법
+            - rgba (0,0,0,0) a=> 투명도 0~1(0.5 반투명)
+        - 그라디언트 : 여러색상을 조합 (https://cssgradient.io/)
+            -background: linear-gradient(방향, 색상1, 색상2...)
+        
+        border-color : 선 색상
+        선 두께, 선 모양, 색상 (한셋트로 설정)
+        
+        border : 두께 모양 색
+        
+        border : 선두깨
+        border-style : 모양
+        border-color : 선 색상
+    -->
+        <style>
+            div{
+                width: 300px;
+                height: 100px;
+                text-align: center; /*요소 가로 가운데 정렬*/
+                line-height: 100px; /*글자의 영역(높이)을 늘리는 역할 - 글자를 가운데 정렬 역할.*/
+            }
+
+            .color{
+                color: brown;
+                background-color: bisque;
+            }
+
+            .bg-color{
+                color: white;
+                background: #2A7B9B;
+                background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(74, 178, 139, 1) 36%, rgba(87, 199, 133, 0.56) 63%, rgba(237, 221, 83, 1) 100%);
+            }
+            .b-color{
+                border: 1px solid #2A7B9B;
+            }
+
+            .box{
+                /* https://www.color-name.com/ */
+                color: aqua;
+                background: #0747A2;
+                background: linear-gradient(90deg,rgba(7, 71, 162, 1) 0%, rgba(106, 5, 188, 1) 25%, rgba(3, 142, 209, 1) 50%, rgba(2, 172, 229, 1) 75%, rgba(0, 212, 255, 1) 100%);
+                border: 1px solid black;
+            }
+        </style>
+</head>
+    <body>
+        <div class="color">글자색</div>
+        <div class="bg-color">배경색</div>
+        <div class="b-color">테두리</div>
+        <div class="box">test</div>
+    </body>
+</html>

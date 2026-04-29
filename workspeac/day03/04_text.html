@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        text : 글자 상태
+        - text-indent : 들여쓰기(문장에서 첫 문단의 첫줄만 들여쓰기)
+        - text-align : 가로 정렬 | left, right, center, justify(양쪽정렬)
+        - text-decoration : 선 긋기
+            - none : 없음
+            - underline : 밑줄
+            - overline : 윗줄
+            - line-through : 가운데줄 (취소선)
+    -->
+    <!-- 
+        css 단위
+        px : pixel 픽샐
+        % : 퍼센트 (부모기준 몇%를 줄것인가?)
+        em : 배수(부모기준 배수 ex)부모가 10px일 경우 난 20px)
+        rem : 배수(문서값을 기준으로 배수)
+        cm / mm / in(1in = 96px)
+        pt : 포인터 (1pt = 1/72in)
+        pc : 피카소 (1pc = 12pt)
+        deg : 각도, 90deg
+    -->
+    <!-- 
+        text-overflow : 텍스트가 범위를 넘어가는 경우 어떻게 할것인가? (...) ellipsis
+        white-space : 글자가 넘어가면 넘어간 글자를 어떻게 처리할 것인지
+            - nowrap : 한줄로 처리
+            - wrap : 줄바꿈 (기본)
+        overflow : 요소가 넘어가면 어떻게 처리할 것인지
+            - hidden : 숨김
+            - scroll : 스크롤바 생성
+            - auto : 스크롤바 자동 생성 (기본)
+    -->
+        <style>
+            a{
+                text-decoration: none;
+                color: black;
+            }
+            a:hover{
+                text-decoration: underline;
+            }
+
+            p{
+                text-indent: 15px;
+                text-align: justify;
+            }
+
+            .line{
+                width: 500px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+
+        </style>
+</head>
+<body>
+    <a href="">a tag를 사용하면 자동으로 줄이 생깁니다.</a>
+    <p class="line">
+        안녕하세요 홍길동입니다.
+        안녕하세요 홍길동입니다.
+        안녕하세요 홍길동입니다.
+        안녕하세요 홍길동입니다.
+        안녕하세요 홍길동입니다.
+        안녕하세요 홍길동입니다.
+    </p>
+    <p>
+        안녕하세요 홍길동입니다.
+        안녕하세요 홍길동입니다.
+        안녕하세요 홍길동입니다.
+        안녕하세요 홍길동입니다.
+        안녕하세요 홍길동입니다.
+        안녕하세요 홍길동입니다.
+    </p>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        cursor : 마우스 포인터 모양을 주는 속성
+        - pointer : 손가락 모양
+    -->
+        <style>
+            @font-face {
+                font-family: BlackHanSans-Regular;
+                src: url(../font/Black_Han_Sans/BlackHanSans-Regular.ttf);
+            }
+
+            a{
+                font-family: BlackHanSans-Regular;
+                font-size: 50px;
+                color: green;
+                text-decoration: none;
+            }
+            a:hover{
+                text-decoration: underline;
+            }
+            .box{
+                font-family: BlackHanSans-Regular;
+                font-size: 50px;
+                color: green;
+            }
+            .box:hover{
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        </style>
+</head>
+    <body>
+        <a href="http://naver.com" target="_blank">naver</a>
+        <div class="box">
+            <a href="http://naver.com" target="_blank"></a>
+            naver
+        </div>
+    </body>
+</html>

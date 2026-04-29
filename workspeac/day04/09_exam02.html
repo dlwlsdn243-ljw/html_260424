@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .menu-box{
+            width: 200px;
+            float: left;
+
+        }
+
+        .image-box{
+            width: calc((100% - 210px));
+            height: 700px;
+            float: right;
+            background-color: aqua;
+            background-image: url(../image/배경이미지2.jpeg);
+            background-position: center;
+            background-size: cover;
+
+
+        }
+
+        .menu-box>a{
+            display: block;
+            height: 50px;
+            text-align: center;
+            text-decoration: none;
+            line-height: 50px;
+            border: 1px solid black;
+            box-sizing: border-box;
+            border-bottom: none;
+        }
+
+        .menu-box>a:hover{
+            background-color: yellow;
+        }
+
+        .menu-box>.end{
+            border-bottom:1px solid black ;
+        }
+    </style>
+</head>
+    <body>
+        <div class="container">
+            <div class="menu-box">
+                <a href="">menu1</a>
+                <a href="">menu2</a>
+                <a href="">menu3</a>
+                <a href="" class="end">menu4</a>
+            </div>
+
+            <div class="image-box">
+                <img src="" alt="">
+            </div>
+        </div>
+    </body>
+</html>

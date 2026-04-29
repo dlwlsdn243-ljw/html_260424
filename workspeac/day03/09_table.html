@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 70%;
+            /* 중복선 제거 */
+            border-collapse: collapse;
+        }      
+
+        table th,td{
+            text-align: center;
+            font-size: 20px;
+            height: 40px;
+        }
+
+        table>caption{
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        table>thead>tr{
+            background-color: beige;
+            border-top: 2px solid darkblue;
+            border-bottom:2px solid darkblue ;
+        }
+
+        table>tfoot>tr{
+            background-color: darkblue;
+            color: white;
+        }
+
+        /* 짝수 라인만 배경색*/
+        table>tbody>tr:nth-child(even){
+            background-color: aqua;
+        } 
+
+        /* 모든 라인의 선 없애기 => 가로선만 긋기(선 색변경)*/
+
+
+        /* 마우스 올리면 tr 색 변경*/ 
+        table tbody tr:hover{
+            background-color: darkblue;
+            color: white;
+            font-weight: 700;
+        }
+
+ 
+    </style>
+</head>
+    <body>
+        <table>
+            <caption>성적표</caption>
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>이름</th>
+                    <th>성적</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>김철수</td>
+                    <td>95</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>이영희</td>
+                    <td>88</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>박민수</td>
+                    <td>75</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>최지우</td>
+                    <td>92</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>정하늘</td>
+                    <td>81</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="2">합계</th>
+                    <td>432</td>
+                </tr>
+            </tfoot>
+        </table>
+    </body>
+</html>
