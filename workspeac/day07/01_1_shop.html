@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @import url(../day06/reset.css);
+        @font-face {
+            font-family: Merienda-VariableFont_wght;
+            src: url(../font/Merienda/Merienda-VariableFont_wght.ttf);
+        }
+
+        body{
+            /* 제품이미지의 보호를 위해 */
+            min-width: 900px;
+            font-family: Merienda-VariableFont_wght;
+        }
+
+        .navbar{
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 40px;
+            align-items: center;
+        }
+
+        .navbar>a{
+            font-size: 30px;
+            color: black;
+        }
+
+        .navbar>ul{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .navbar>ul>li{
+            margin: 0 10px;
+        }
+
+        .navbar>ul>li>a{
+            font-size: 20px;
+            color: black;
+        }
+
+
+        .navbar>ul>li>a:hover{
+            color: aqua;
+        }
+
+        .main-img{
+            height: 400px;
+            background-image: url(../image/메인이미지.jpeg);
+            background-position: center;
+            background-size: cover;
+            margin: 20px;
+        }
+
+        .container>h1{
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 50px;
+            font-weight: 700;
+            color: black;
+            text-align: center;
+            margin: 50px;
+        }
+        /*이미지가 3개 들어가는 박스 사이즈*/
+        .container>.product{
+            /*이미지 사이즈 통일 230*3 magin 20px*6 => 810px */ 
+            width: 850px;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+
+        }
+
+        .container>.product>a{
+            margin: 0 20px;
+
+        }
+
+        /* 이미지 사이즈 설정 */
+        .container>.product>a img{
+            width: 230px;
+            height: 230px;
+        }
+
+        .container>.product>a ul{
+            margin: 20px 0 50px 0;
+
+        }
+        
+        .container>.product>a ul>li{
+            margin: 10px;
+            color: black;
+            font-size: 20px;
+        }
+
+        .container>.product>a ul:hover{
+            text-decoration: underline;
+        }
+
+        .container>.footer{
+            text-align: center;
+            margin: 30px auto 50px;
+        }
+
+        .container>.footer>a{
+            color: black;
+        }
+
+        .container>.footer svg{
+            width: 30px;
+            height: 30px;
+            margin: 0 30px;
+        }
+
+        .container>.footer>a:hover{
+            color: aqua;
+        }
+
+        /* 제품 이미지 호버시 살짝 커지게 하는 설정 */
+        .container>.product img:hover{
+            transform: scale(1.1);
+        }
+        .container>.product img{
+            transition: 0.3s;
+        }
+        .container>.product div{
+            width: 230px;
+            height: 230px;
+            overflow: hidden;
+        }
+
+        /* 세일상품 */
+        .container>.product>a{
+            position: relative;
+        }
+        .container>.product .text{
+            position: absolute;
+            top: 200px;
+            color: red;
+            font-weight: 500;
+            /*화면에서 안보이게 설정*/
+            display: none;
+        }
+        /*호버시 display block
+          호버시 다른 객체가 변경하게 할 때
+          조상 자식(띄어쓰기)
+          부모 > 자식 (>)
+          형제 ~ 형제 (~)
+        */
+        .container>.product img:hover ~.text{
+            display: block;
+        }
+
+    </style>
+</head>
+    <body>
+        <div class="container">
+            <!-- 헤더 메뉴 -->
+             <div class="navbar">
+                <a href="">▧SIMPLE SHOP</a>
+                <ul>
+                    <li><a href="">content</a></li>
+                    <li><a href="">shop</a></li>
+                    <li><a href="">cart</a></li>
+                    <li><a href="">login</a></li>
+                </ul>
+
+             </div>
+
+             <!-- main image -->
+             <div class="main-img"></div>
+             <!-- 중간제목 -->
+              <h1>Our New Product</h1>
+
+             <!-- 제품이미지 3*3 -->
+              <div class="product">
+                <a href="">
+                    <div>
+                        <img src="../image/국밥.jpeg" alt="">
+                        <div class="text">세일상품</div>
+                    </div>
+                    <ul>
+                        <li>국밥</li>
+                        <li>10,000</li>
+                    </ul>
+                </a>
+                <a href="">
+                    <div>
+                        <img src="../image/국밥.jpeg" alt="">
+                        <div class="text">세일상품</div>
+                    </div>
+                    <ul>
+                        <li>국밥</li>
+                        <li>10,000</li>
+                    </ul>
+                </a>
+                <a href="">
+                    <div>
+                        <img src="../image/국밥.jpeg" alt="">
+                    </div>
+                    <ul>
+                        <li>국밥</li>
+                        <li>10,000</li>
+                    </ul>
+                </a>
+                <a href="">
+                    <div>
+                        <img src="../image/국밥.jpeg" alt="">
+                    </div>
+                    <ul>
+                        <li>국밥</li>
+                        <li>10,000</li>
+                    </ul>
+                </a>
+                <a href="">
+                    <div>
+                        <img src="../image/국밥.jpeg" alt="">
+                    </div>
+                    <ul>
+                        <li>국밥</li>
+                        <li>10,000</li>
+                    </ul>
+                </a>
+                <a href="">
+                    <div>
+                        <img src="../image/국밥.jpeg" alt="">
+                    </div>
+                    <ul>
+                        <li>국밥</li>
+                        <li>10,000</li>
+                    </ul>
+                </a>
+                <a href="">
+                    <div>
+                        <img src="../image/국밥.jpeg" alt="">
+                    </div>
+                    <ul>
+                        <li>국밥</li>
+                        <li>10,000</li>
+                    </ul>
+                </a>
+                <a href="">
+                    <div>
+                        <img src="../image/국밥.jpeg" alt="">
+                    </div>
+                    <ul>
+                        <li>국밥</li>
+                        <li>10,000</li>
+                    </ul>
+                </a>
+                <a href="">
+                    <div>
+                        <img src="../image/국밥.jpeg" alt="">
+                    </div>
+                    <ul>
+                        <li>국밥</li>
+                        <li>10,000</li>
+                    </ul>
+                </a>
+              </div>
+
+              <div class="footer">
+                <!-- 아이콘 3개 -->
+                 <a href=""></a>
+                 <a href=""></a>
+                 <a href=""></a>
+              </div>
+        </div>
+    </body>
+</html>

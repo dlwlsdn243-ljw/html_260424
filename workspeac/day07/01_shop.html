@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @import url(../day06/reset.css);
+
+        img{
+            width: 300px;
+            height: 200px;
+        }
+
+        .container>.header{
+            width: 90%;
+            margin: 0 auto;
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container>.header>h3{
+            font-size: 25px;
+        }
+
+        .container>.header>ul{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container>.header>ul>li{
+            padding: 10px;
+        }
+
+        .container>.header>ul>li>a{
+            font-size: 15px;
+        }
+
+        .container>.main-img{
+            background-image: url(../image/메인이미지.jpeg);
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container>h3{
+            display: flex;
+            justify-content: center;
+            font-size: 40px;
+            font-weight: 700;
+            margin: 20px;
+        }
+
+        .container>.main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+
+        
+        .img{
+            background-color: white;
+            margin: 50px;
+            padding: 20px;
+
+        }
+
+        .img>p{
+            font-size: 20px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .img:hover{
+            color: blue;
+        }
+ 
+    </style>
+</head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h3>▦ SIMPLE SHOP</h3>
+                <ul>
+                    <li><a href="">Content</a></li>
+                    <li><a href="">Shop</a></li>
+                    <li><a href="">Cart</a></li>
+                    <li><a href="">Login</a></li>
+                </ul>
+            </div>
+
+            <div class="main-img"></div>
+            
+            <h3>Out New Product</h3>
+
+            <div class="main">
+                <div class="img">
+                    <img src="../image/고기버섯완자.jpeg" alt="">
+                    <p>고기버섯완자</p>
+                    <p>20,000원</p>
+                </div>
+                <div class="img">
+                    <img src="../image/닭갈비.jpeg" alt="">
+                    <p>닭갈비</p>
+                    <p>15,000원</p>
+                </div>
+                <div class="img">
+                    <img src="../image/국밥.jpeg" alt="">
+                    <p>국밥</p>
+                    <p>10,000원</p>
+                </div>
+                <div class="img">                    
+                    <img src="../image/돼지곱창.jpeg" alt="">
+                    <p>돼지곱창</p>
+                    <p>17,000원</p>
+                </div>
+                <div class="img">
+                    <img src="../image/비빔밥.jpeg" alt="">
+                    <p>비빔밥</p>
+                    <p>12,000원</p>
+                </div>
+                <div class="img">
+                    <img src="../image/삼계탕.jpeg" alt="">
+                    <p>삼계탕</p>
+                    <p>18,000원</p>
+                </div>
+                <div class="img">
+                    <img src="../image/석박지.jpeg" alt="">
+                    <p>석박지</p>
+                    <p>5000원</p>
+                </div>
+                <div class="img">
+                    <img src="../image/윙봉닭볶음.jpeg" alt="">
+                    <p>윙봉닭볶음</p>
+                    <p>20,000원</p>
+                </div>
+                <div class="img">
+                    <img src="../image/초밥.jpeg" alt="">
+                    <p>초밥</p>
+                    <p>15,000원</p>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>

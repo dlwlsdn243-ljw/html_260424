@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        min-width : 기본이 작은것 점차 크게 레이아웃 변경
+    -->
+    
+    <style>
+        body{
+            margin: 0;
+        }
+
+        .header{
+            height: 60px;
+            background-color: aqua;
+        }
+
+        .main-img{
+            height: 300px;
+            background-color: beige;
+        }
+
+        .subject{
+            height: 400px;
+            background-color: azure;
+        }
+
+        .content{
+            height: 500px;
+            background-color: orange;
+        }
+
+        .sub{
+            height: 300px;
+            background-color: green;
+        }
+
+        .footer{
+            height: 200px;
+            background-color: blueviolet;
+        }
+
+        @media screen and (min-width: 800px) {
+            .content{
+                height: 500px;
+                width: 50%;
+                float: left;
+            }
+            
+            .sub{
+                height: 500px;
+                width: 50%;
+                float: right;
+            }
+
+            .footer{
+            height: 200px;
+            background-color: blueviolet;
+            clear: both;
+            }
+        }
+    
+        @media screen and (min-width : 1200px) {
+            .subject{
+                height: 800px;
+                width: 50%;
+                float: left;
+            }
+
+            .content{
+                height: 400px;
+                width: 50%;
+                float: right;
+            }
+
+            .sub{
+                height: 400px;
+                width: 50%;
+                float: right;
+            }
+
+            .footer{
+            height: 200px;
+            background-color: blueviolet;
+            clear: both;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="header"></div>
+    <div class="main-img"></div>
+    <div class="subject"></div>
+    <div class="content"></div>
+    <div class="sub"></div>
+    <div class="footer"></div>
+</body>
+</html>

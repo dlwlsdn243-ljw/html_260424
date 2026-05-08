@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        transform 속성 : 회전, 이동, 확대, 기울림 자신을 움직이는(변화시키는) 속성
+             - translate(x,y) : x축, t축 방향으로 값만큼 이동
+             - translateX(x) / translateY(y)
+             
+             - scale(w,h) : 가로로 w배, 세로로 h배 만큼 확대
+                => 값을 0으로 주면 사라짐
+                - sxaleX(x) / scaleY(y)
+
+             - rotate(a) : a각도만큼 시계방향으로 회전, deg단위를 사용
+
+             - skew(xa, ya) : x축으로 xa만큼, y축으로 ya만큼 기울림
+                - xkewX(xa) / skewY(ya)
+
+        transition 효과
+            - 다른 속성값이 변화할 때 서서히 변화하도록 하는 효과
+            - 애니메이션 효과가 발생한 것처ㅓㅁ 보이게 함
+            - transition 속성명 전환시간, 속성명 전환시간;
+            - 속성이 전환시간동안 서서히 변환
+    -->
+    <style>
+        @keyframes translate {
+            0%{transform: translate(0,0);}            
+            50%{transform: translate(50px,50px);}
+            100%{transform: translate(0,0);}
+        }
+        @keyframes scale {
+            0%{transform: scale(1,1);}            
+            50%{transform: scale(2,2);}
+            100%{transform: scale(1,1);}
+        }
+        @keyframes rotate {
+            0%{transform: rotate(0deg);}            
+            50%{transform: rotate(180deg);}
+            100%{transform: rotate(0deg);}
+        }
+        @keyframes skew {
+            0%{transform: skew(0deg, 0deg);}            
+            50%{transform: skew(10deg, 10deg);}
+            100%{transform: skew(0deg, 0deg);}
+        }
+
+
+
+        .box{
+            width: 200px;
+            height: 50px;
+            background-color: antiquewhite;
+            animation: skew 2s 3;
+        }
+
+        .font{
+            font-size: 20px;
+            transition: font-size 2s;
+        }
+
+        .font:hover{
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="font">transition</div>
+</body>
+</html>

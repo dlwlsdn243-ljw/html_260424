@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--  -->
+    <style>
+        .container{
+            width: 300px;
+            border: 1px solid black;
+            margin: 20px auto; /*요소를 가운데로*/
+        }
+
+        .boxtext{
+            width: 90%;
+            height: 50px;
+            border: 3px solid black;
+            margin: 10px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 30px;
+            box-sizing: border-box;
+        }
+
+        .p-box{
+            width: 90%;
+            height: 270px;
+            margin: 10px;
+            border: 3px solid black;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .box{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            box-shadow: 5px 5px 5px gray;
+        }
+
+        .box1{
+            background-color: red;
+            z-index: 100;
+            top: 40px;
+            left: 40px;
+        }
+
+        .box2{
+            background-color: green;
+            top: 80px;
+            left: 80px;
+            z-index: 50;
+        }
+
+        .box3{
+            background-color: blue;
+            top: 120px;
+            left: 120px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="boxtext">텍스트</div>
+        <div class="p-box">
+            <div class="box box1"></div>
+            <div class="box box2"></div>
+            <div class="box box3"></div>
+        </div>
+        <div class="boxtext">텍스트</div>
+    </div>
+</body>
+</html>

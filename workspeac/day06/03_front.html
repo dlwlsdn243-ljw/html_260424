@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="reset.css"> -->
+    <!-- 
+        reset.css : html 요소 중 내부적으로 여백을 가지고 있는 태그들이 잇음.
+        ul>li / a / p => 원래 태그가 가지고 있는 값을 없애주는 역할
+
+        width : 100% (부모의 기준) 부모가 없다면 화면 전체의 가로
+        height : 100% (부모기준) 
+        vh / vw : 모니터(브라우저) 기준 높이 / 너비 
+    -->
+    <style>
+        /* link css 내부로 이동 */
+        @import url(reset.css); /*여백 없애는 용도*/
+
+        .container{
+            width: 100%;
+            height: 100vh; /* 화면의 전체 */
+            background: linear-gradient(rgba(0,0,0,0.03), rgba(0, 0, 0, 0.614)), 
+                url(../image/배경이미지2.jpeg);
+            background-size: cover;
+        }
+
+        .container>.navbar{
+            width: 90%;
+            margin: 0 auto;
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid black;
+        }
+
+        .container>.navbar>h1{
+            color: white;
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+        .container>.navbar>ul{
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .container>.navbar>ul>li{
+            margin: 0 10px;
+        }
+
+        .container>.navbar>ul>li>a{
+            color: white;
+            font-weight: 700;
+        }
+
+        .container>.navbar>ul>li>a:hover{
+            text-decoration: underline;
+            color: brown;
+        }
+
+        .container>.main{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+
+        .container>.main>h2{
+            font-size: 50px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .container>.main>a>button{
+            border: 2px solid black;
+            font-size: 20px;
+            font-weight: 700;
+            padding: 15px 30px;
+            border-radius: 10px;
+            background-color: white;
+            transition: 0.5s; /*호버시 색바꾸는 시간*/ 
+        }
+
+        .container>.main>a>button:hover{
+            cursor: pointer;
+            background-color: green;
+            
+        }
+        
+    </style>
+</head>
+    <body>
+        <div class="container">
+            <div class="navbar">
+                <h1>DESIGN</h1>
+                <ul>
+                    <li><a href="">HOME</a></li>
+                    <li><a href="">LOGIN</a></li>
+                    <li><a href="">SIGNUP</a></li>
+                    <li><a href="">BOARD</a></li>
+                </ul>
+            </div>
+
+            <div class="main">
+                <h2>Welcome to Fromt-End World</h2>
+                <a href="">
+                    <button>Lean More</button>
+                </a>
+            </div>
+        </div>
+    </body>
+</html>

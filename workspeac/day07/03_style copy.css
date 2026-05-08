@@ -1,0 +1,310 @@
+@import url(../day06/reset.css);
+@font-face {
+    font-family: NotoSansKR-VariableFont_wght;
+    src: url(../font/Noto_Sans_KR/NotoSansKR-VariableFont_wght.ttf);
+}
+body{
+    font-family: NotoSansKR-VariableFont_wght;
+    color: black;
+}
+.wrap{
+    min-width: 1400px;
+}
+/* inner : 1360px */
+.inner{
+    width: 1360px;
+    margin: auto;
+    box-sizing: border-box;
+}
+/* 전체 content-box padding 120px */
+
+.con-box{
+    padding: 120px 0;
+}
+
+/* header */
+header{
+    /* 메뉴 스티키(상단에 고정) 값 설정 */
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 100;
+}
+header .top, .menu{
+    /* 매뉴의 아래쪽 줄 긋기 */
+    border-bottom: 1px solid gray;
+    padding: 10px 0;
+}
+header .top a, .menu a{
+    /* 메뉴의 a태그 설정*/
+    color: gray;
+    font-weight: 500;
+    letter-spacing: -2px;
+}
+header .top a{
+    /* top의 a태그 설정*/
+    font-size: 13px;
+}
+header .inner{
+    /* 메뉴의 위치 설정*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+header .inner .top-left>ul, .top-right>ul{
+    display: flex;
+}
+header .inner .top-left>ul>li, .top-right>ul>li{
+    margin: 10px;
+}
+header .inner .top-right img{
+    width: 12px;
+    margin-left: 5px;
+}
+header .menu .menu-left{
+    display: flex;
+    align-items: center;
+}
+header .menu .menu-left img{
+    margin-right: 70px;
+}
+header .menu .menu-left ul{
+    display: flex;
+}
+header .menu .menu-left ul>li{
+    margin: 0 35px;
+}
+header .menu .menu-left ul>li>a{
+    font-size: 17px;
+    color: black;
+}
+header .menu .menu-right{
+    width: 100px;
+    height: 35px;
+    border: 1px solid rgb(0, 29, 0);
+    border-radius: 50px;
+    line-height: 35px;
+}
+#g{
+    color: rgb(0, 80, 0);
+}
+.after::after{
+    content: "";
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    left: 10px;
+    width: 1px;
+    height: 13px;
+    background-color: rgb(156, 156, 156);
+}
+
+/* main - slide*/
+main>.slide{
+    width: 100%;
+    height: 532px;
+    background-image: url(../image/민속박물관/imgi_2_.202509161994fd0d1ca60.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+main>.slide .slide-main{
+    color: white;
+    padding-top: 60px;
+}
+
+main>.slide .slide-main1{
+    font-size: 60px;
+    font-weight: 700;
+    padding-bottom: 20px;
+}
+
+main>.slide .slide-sub{
+    font-size: 30px;
+    font-weight: 700;
+    padding-bottom: 10px;
+}
+
+main>.slide .sub1{
+    margin-top: 30px;
+}
+
+main>.slide .slide-time{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px ;
+}
+
+/*270px * 80px*/
+main>.slide .slide-time>.slide-time-left{
+    width: calc(100% - 270px);
+    background-color: white;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+main>.slide .slide-time .time-left1{
+    position: relative;
+}
+
+main>.slide .slide-time>.slide-time-left img{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: -5px;
+    left: -30px;
+}
+
+main>.slide .slide-time>.time-left1 span{
+    font-size: 20px;
+    font-weight: 700;
+    padding: 0 30px 0 10px;
+}
+
+main>.slide .slide-time ul{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+main>.slide .slide-time ul>li{
+    margin: 0 30px;
+}
+
+main>.slide .slide-time ul>li>span{
+    font-size: 18px;
+}
+
+main>.slide .slide-time ul>li>strong{
+    font-size: 18px;
+    font-weight: 700;
+
+}
+
+main>.slide .slide-time>.slide-time-right{
+    width: 270px;
+    height: 80px;
+    box-sizing: border-box;
+    background-color: green;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 80px;
+    position: relative;
+}
+
+main>.slide .slide-time>.slide-time-right>a{
+    color: white;
+}
+
+main>.slide .slide-time>.slide-time-right img{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 25px;
+    /*이미지 사용 색상 반전*/
+    filter: invert(100%);
+}
+
+main>.slide .slide-time>.slide-time-right span{
+    padding-left: 40px;
+}
+
+
+/* con1 */
+.con1>.inner{
+    display: flex;
+    justify-content: space-between;
+}
+/* 특별전시 336*645 */
+/* 상설전시 100% - 336px */
+.con1 .con1-left{
+    width: 336px;
+    margin-right: 50px;
+}
+.con1 .con1-right{
+    width: calc(100% - 386px);
+}
+.con1 .top{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid black;
+    padding-bottom: 30px;
+    margin-bottom: 40px;
+}
+.con1 .top-left{
+    font-size: 35px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+.con1 .top-right img{
+    width: 35px;
+    height: 35px;
+}
+/* left image 336*476 */
+.con1 .con1-left .img .image{
+    width: 336px;
+    height: 476px;
+}
+/* right image 320*200 */
+.con1 .con1-right .img .image{
+    width: 320px;
+    height: 200px;
+    margin-right: 30px;
+}
+.con1 .con1-right .img-sub{
+    display: flex;
+    align-items: center;
+    margin: 30px 0;
+    border-bottom: 2px solid rgb(199, 199, 199);
+    padding-bottom: 30px;
+}
+.con1 .description strong{
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+.con1 .description p:nth-of-type(1){
+    font-size: 18px;
+    font-weight: 500;
+    margin: 15px 0 20px 0;
+    letter-spacing: -1px;
+}
+.con1 .description p:nth-of-type(2){
+    font-size: 17px;
+    color: gray;
+    letter-spacing: -1px;
+    margin: 15px 0 20px 0;
+    line-height: 1.5;
+}
+.con1 .description div{
+    letter-spacing: -1px;
+    position: relative;
+}
+.con1 .description div>img{
+    position: absolute;
+    left: 60px;
+}
+.con1 .bt{
+    text-align: center;
+    margin-top: 30px;
+}
+.con1 .bt img{
+    padding: 0 15px;
+    filter: opacity(0.3);
+}
+.con1 .bt .e{
+    filter: opacity(1);
+}
+.con1 .bt span{
+    padding: 0 5px;
+    color: gray;
+    font-weight: 600;
+}

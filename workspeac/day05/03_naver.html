@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 50px;
+            height: 50px;
+        }
+
+        .search-box{
+            width: 700px;
+            height: 60px;
+            margin: 50px auto;
+            border: 1px solid green;
+            border-radius: 60px;
+            position: relative;
+            top: 20px;
+            box-sizing: border-box;
+        }
+
+        .icon{
+            position: absolute; 
+            top: 5px;
+        }
+
+        input{
+            width: 400px;
+            height: 40px;
+            font-size: 20px;
+            position: absolute;
+            top: 5px;
+            left: 50px;
+            margin: 5px auto;
+            border: none;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .search-right{
+            position: absolute;
+            margin: 5px auto;
+            right: 20px;
+        
+        }
+
+        button{
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+
+
+    </style>
+</head>
+    <body>
+        <form action="">
+            <div class="search-box">
+                <div class="icon">
+                    <a href="http://naver.com"><img src="../image/네이버 로고.jpg" alt="" ></a>
+                </div>
+
+                <input type="text" name="search" placeholder="검색어를 입력하세요.">
+
+                <div class="search-right">
+                    <a href=""><img src="../image/키보드.png" alt=""></a>
+                    <a href=""><img src="../image/삼각형.png" alt=""></a>
+                    <button type="submit">
+                        <img src="../image/돋보기.png" alt="">
+                    </button>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

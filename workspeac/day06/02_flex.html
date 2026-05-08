@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        flex : display 속성 중 하나
+        display : table, flex, grid (사용자의 편리성에 츼해 나온 형태)
+        flex
+            - float속성은 부모 높이를 인지 못하는 번거로움을 줄이기 위한 속성
+            - 레이아웃 배치 전용기능으로 고안
+            - float, inline 등의 기존 방식에 비해 훨씬 강룍한 요소와 편리한 기능이 많음.
+            - 부모요소(컨테이너) : flex container
+                - flex container : flex 기능에 영향을 받는 공간
+                - 설정된 속성에 따라 각각의 item들이 어껀 형태로 배치되는가를 결정
+            container 설정
+            - dispaly : flex
+            - flex-direction : item들을 배치할 방향
+                row (한줄에 배치 - 가로로) / column (세로로 배치)
+            - flex-wrap : 줄넘김 방식
+                nowrap(줄바꿈 없음) / wrap(줄바꿈)
+            - justify-content : 가로정렬 방식
+                flex-start / flex-end / center / space-between(균등분배) / space-around(양쪽여백포함 균등분배) 
+            - align-item : 세로정렬방식
+                flex-start / flex-end / center / stretch(전체로 쭉 늘림)
+            - 자식요소(아이템) : flex item
+    -->
+    <style>
+        .container{
+            display: flex; /*flex만 사용해도 가로로 배치됨*/
+            height: 300px;
+            border: 1px solid black;
+            background-color: aquamarine;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .item{
+            width: 150px;
+            height: 50px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">Hello</div>
+        <div class="item">World</div>
+        <div class="item">flex</div>
+        <div class="item">Hello</div>
+        <div class="item">World</div>
+        <div class="item">flex</div>
+        <div class="item">Hello</div>
+        <div class="item">World</div>
+        <div class="item">flex</div>
+        <div class="item">Hello</div>
+        <div class="item">World</div>
+        <div class="item">flex</div>
+        <div class="item">Hello</div>
+        <div class="item">World</div>
+        <div class="item">flex</div>
+        <div class="item">Hello</div>
+        <div class="item">World</div>
+        <div class="item">flex</div>
+    </div>
+</body>
+</html>

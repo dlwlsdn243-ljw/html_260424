@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+        }
+
+        .p-box{
+            width: 400px; 
+            background-color: rgb(5, 60, 42);
+            /* 화면의 정중앙에 위치 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /*                      */
+            border-radius: 7px;
+            padding-top: 10px;
+            box-sizing: border-box;
+        }
+
+        input{
+            width: 350px;
+            height: 40px;
+            margin: 15px auto;
+            display: block;
+            border-radius: 7px;
+            border: none;
+            box-sizing: border-box;
+            padding-left: 10px;
+        }
+
+        button{
+            width: 350px;
+            height: 40px;
+            margin: 15px auto;
+            display: block;
+            border-radius: 7px;
+            border: none;
+            box-sizing: border-box;
+            background-color: white;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        a{
+            width: 300px;
+            height: 40px;
+            margin: 20px auto;
+            display: block;
+            font-size: 12px;
+            line-height: 50px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+        }
+
+        a:hover{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+    <body>
+        <div class="p-box">
+            <form action="">
+                <input type="text" name="id" placeholder="아이디">
+                <input type="password" name="password" placeholder="패스워드">
+                <button type="submit">
+                    로그인
+                </button>
+            </form>
+
+            <a href="">비밀번호를 잊어버리셨나요</a>
+        </div>
+    </body>
+</html>
