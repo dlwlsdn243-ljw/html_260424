@@ -39,11 +39,14 @@ header{
     z-index: 100;
 }
 
+.top{
+    border-bottom: 1px solid grey;
+}
+
 .top>.inner{
     display: flex;
     justify-content: space-between;
     font-size: 13px;
-    border-bottom: 1px solid grey;
     padding: 10px 0;
 }
 
@@ -82,11 +85,14 @@ header{
     padding: 10px;
 }
 
+.menu{
+    border-bottom: 1px solid grey;
+}
+
 .menu>.inner{
     display: flex;
     justify-content: space-between;
     font-size: 17px;
-    border-bottom: 1px solid grey;
 }
 
 .menu>.inner>.top-left{
@@ -186,7 +192,6 @@ header{
 }
 
 .slide-time .end>a{
-    text-decoration: none;
     color: white;
 }
 
@@ -474,7 +479,7 @@ header{
     padding: 50px;
     width: 250px;
     height: 300px;
-    z-index: 100;
+    z-index: 50;
 }
 
 .con3 .inner .con3-5 .img3-2{
@@ -548,6 +553,18 @@ header{
     color: white;
 }
 
+.con3 .inner .con3-11{
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    height: 50px;
+    border: 1px solid black;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 100px auto;
+}
+
 
 /* con4 */ 
 .con4 .inner{
@@ -616,14 +633,10 @@ header{
     align-items: center;
 }
 
-.con5 .inner2 .con5-left .span-left{
-    display: inline;
-}
-
 .con5 .inner2 .con5-left .span-left span:nth-of-type(1){
     width: 50px;
     height: 50px;
-    margin-left: 50px;
+    margin-left: 20px;
     margin-right: 20px;
     filter: invert(1);
 }
@@ -761,3 +774,20 @@ footer .inner .footer-bottom-right-right p:nth-of-type(1){
 footer .inner .footer-bottom-right-right p:nth-of-type(2){
     padding-top: 35px;
 }
+
+footer .inner .top{
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 50px;
+    right: 100px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
