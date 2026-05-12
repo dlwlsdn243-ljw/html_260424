@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        string : 가장 많이 다루는 데이터 타입
+    </h1>
+    <!-- 
+        - java에서의 string method와 거의 유사함
+        - 문자 데이터는 index(0부터 시작)를 가지고 있음
+        - 개행문자 <br>문자열 내에서는 안쓰는 것이 좋음
+        - length : 문자열의 종 길이 (문자열에서 공백:띄어쓰기도 한글자로 포함)
+        - new String() : 객체타입으로 선언 가능 / 잘 쓰이지 않음
+    -->
+    <!-- 
+        추출 관련 메서드 : substring(), substr(), slice()
+        문자 대체 관련 메서드 : replace(set, old, new) => 처음 찾은 값만 변환
+        - trim() : 양쪽 공백 제거
+        - charAt(index) / indexOf(str 문자)
+        - padStart(str, 길이, 채울문자) / padEnd
+            010101-3******
+        - startWith(str, 문자) / endWith
+            해당 문자가 str의 앞 / 뒤에 존재하는지 확인하는 메서드
+    -->
+    <script>
+        let str = 'apple, banana, orange'
+        // substring / slice(statr,end) : start번지부터 end번지까지 추출 end 미포함
+        // substr : (start, count)
+        console.log(str.slice(0,5));
+        console.log(str.substring(7,13));
+        console.log(str.substr(7,6)) // 7번지부터 뒤로 6개 출력
+        console.log(str.slice(-6)) // 끝에서부터 추출이 가능
+        console.log(str.substring(-6)) // 인지를 못함, 전체 문자 출력
+
+        console.log('-------------------------------------')
+        // 자료형 변수명. => 자료형에 사용할 수 있는 메서드들 목록 출력
+        // 현시점에 객체의 상태가 어떤 상태인지 불분명히먄 메서드를 표시하지 않음
+
+        let str2 = 'Hello java world~!! java'
+        // replace 처음 일치하는 값만 변경
+        console.log(str2.replace('java', 'javascript'))
+        console.log(str2.replaceAll('java', 'javascript')) // 전체 변경 가능
+        
+        let padText = 'abc'
+        console.log(padText.padStart(10, '-')) // 전체번지 - 포함 앞쪽에 - 8개 총 10개
+        console.log(padText.padEnd(10,'-')) // 전체번지 - 포함 뒤쪽에 - 8개 총 10개
+
+        // 010101-3*******
+        let rNum = '010101-3123456'
+        console.log(rNum.slice(0, rNum.indexOf('-') + 2).padEnd(rNum.length,'*'));
+        
+        // 성별 : 상항연산자
+        let id = rNum.charAt(rNum.indexOf('-') + 1)
+        console.log((id === '1' || id === '3') ? '남' : '여')
+
+        let fullfilename = '20260512_javascript.String_method.html'
+        // 작성일자만 추출 : 20260512
+        // 파일명 추출 : javascript.String_method
+        // 확장자만 추출 : html
+        console.log(fullfilename.slice(0,8))
+        console.log(fullfilename.substring(9,33))
+        console.log(fullfilename.slice(-4))
+
+        console.log(fullfilename.slice(0,fullfilename.indexOf('_')))
+        console.log(fullfilename.slice(fullfilename.indexOf('_')+1 , fullfilename.lastIndexOf('.')))
+        console.log(fullfilename.slice(fullfilename.lastIndexOf('.')))
+
+        console.log('ABC'.toLocaleLowerCase())
+        console.log(str.split('.'))
+    </script>
+</body>
+</html>

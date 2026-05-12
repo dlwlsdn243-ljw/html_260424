@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        getElementBy** / querySelector
+    </h1>
+
+    <h1>text</h1>
+    <!-- 
+        getElementBy**
+        - ID : 한 화면에서(document) 유일 함 => 유일한 객체로 잡힘
+        - TagName : 배열로 들어옴
+        - ClassName : 배열로 들어옴
+        document.getElementByTagName('h1')[0];
+         - HTMLCollection 객체로 들어옴 : 배열처럼 들어옴 => 유사배열
+
+         - querySelectorAll / querySelector
+    -->
+
+    <script>
+        const h1 = document.getElementsByTagName('h1');
+        console.log(h1)
+        console.log(h1[0].innerText)
+        console.log(h1[1].innerText)
+
+        const h1Query = document.querySelectorAll('h1')
+        console.log(h1Query)
+        console.log(h1Query[0].innerText)
+
+        // alert : 안내문을 띄워주는 창 => 확인버튼
+        // confirm : 확인(true) / 취소(false)
+        // prompt : 값을 입력받는 input을 같이 제공 => alert+input
+        
+        //alert('hello');
+
+        //let con = confirm('pass?');
+        //console.log(con);
+
+        let pro = prompt('이름을 입력해주세요')
+        console.log(pro)
+   
+    </script>
+</body>
+</html>

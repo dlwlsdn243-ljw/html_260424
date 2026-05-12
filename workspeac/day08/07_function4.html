@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>화살표 함수 : Arrow Function : ES6 부터 사용가능한 함수 정의법</h1>
+    <!-- 
+        가독성이 떨어지나 코드량을 많이 줄일 수 있어서 많이 사용하고 있음
+        표현식 하수처럼 변수롸를 사용할 수 있음
+    -->
+
+    <script>
+        const arrowFunc = (p1,p2) => {
+            // 코드 작성
+            let result = p1 + p2
+            return result
+        }
+        arrowFunc(1,2)
+
+        // 리턴만 있을 때 : return 키워드 생략 가능
+        const arrowFunc2 = (p1,p2) => {return p1 + p2}
+        const arrowFunc3 = (p1,p2) => {p1 + p2}
+
+        const arrowFunc4 = (p1,p2) => {
+            console.log(p1 + p2)
+        }
+
+        console.log()
+
+    </script>
+</body>
+</html>

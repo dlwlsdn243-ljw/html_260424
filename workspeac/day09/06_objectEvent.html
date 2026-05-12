@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>자바스크립트 객체 생성</h1>
+    <fieldset>
+        <legend>나의 소개</legend>
+        이름 : <input type="text" id="name" placeholder="name..."><br>
+        주소 : <input type="text" id="addr" placeholder="address..."><br>
+        좋아하는 리스트 <br>
+        1. : <input type="text" id="favor1"><br>
+        2. : <input type="text" id="favor2"><br>
+        3. : <input type="text" id="favor3"><br>
+        이메일 : <input type="text" id="email"><br>
+        <button onclick="clickEvent()"> 객체로 전송 </button>
+    </fieldset>
+
+    <script>
+        const name = document.getElementById('name');
+        const addr = document.getElementById('addr');
+        const favor1 = document.getElementById('favor1');
+        const favor2 = document.getElementById('favor2');
+        const favor3 = document.getElementById('favor3');
+        const email = document.getElementById('email');
+
+        function clickEvent(){
+            console.log(name.value);
+            console.log(addr.value);
+            console.log(favor1.value);
+            console.log(favor2.value);
+            console.log(favor3.value);
+            console.log(email.value);
+        }
+
+        const me ={
+            name: '',
+            address: '',
+            favors: {
+                favor1: '',
+                favor2: '',
+                favor3: ''
+            },
+            email: ''
+        };
+        console.log(me)
+
+        name.value = ''
+        addr.value = ''
+        favor1.value = ''
+        favor2.value = ''
+        favor3.value = ''
+        email.value = ''
+    </script>
+</body>
+</html>

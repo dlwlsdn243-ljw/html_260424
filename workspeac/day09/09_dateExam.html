@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>생년월일 확인</legend>
+        이름 : <input type="text" name="" id="name"> <br>
+        주민번호 : <input type="text" name="" id="rNum"> <br>
+        <button onclick="clickEvent()">확인</button>
+        <!-- 이름, 생년월일, 나이, 성별 출력 -->
+        <h3 id="printResult"></h3>
+    </fieldset>
+
+    <script>
+        const name = document.getElementById('name');
+        const rNum = document.getElementById('rNum')
+        
+        function clickEvent(){
+            let rNum1 = rNum.value
+            let birth = rNum1.slice(0, rNum1.indexOf('-'))
+
+            let today = new Date();
+            let age = (today.getFullYear()) - (1900 + Number(rNum1.slice(0, 2)))
+
+            let id = rNum1.charAt(rNum1.indexOf('-') + 1)
+            let gender = (id === '1' || id === '3') ? '남' : '여'
+            
+            document.getElementById("printResult").innerText = 
+            `이름 : ${name.value}, 생년월일 : ${birth}, 나이 : ${age}, 성별 : ${gender}`
+        }
+
+    </script>
+</body>
+</html>

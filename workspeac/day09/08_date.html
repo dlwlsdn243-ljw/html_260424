@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        날짜 관련 함수
+    </h1>
+    <!-- 
+        new Data(); => 오늘 날짜를 리턴
+        getFullYear() => 연도만 리턴
+        getMonth()+1 => 월만 리턴, 0부터 ~ 
+        getDate() => 일 1~31까지
+        gatDay() => 요일 0(일요일) ~ 6(토요일)
+        getHours() / getMinutes() / getSeconds() : 시 분 초 추출
+    -->
+
+    <script>
+        let today = new Date();
+        console.log(today)
+        console.log(today.getFullYear())
+        console.log(today.getMonth()+1)
+        console.log(today.getDate())
+        console.log(today.getDay())
+        console.log(today.getHours())
+        console.log(today.toDateString()) // Tue May 12 2026
+        console.log(today.toLocaleDateString()) // 2026. 5. 12.
+        console.log(today.toLocaleTimeString()) // 오후 4:38:52
+        console.log(today.toLocaleString()) // 2026. 5. 12. 오후 4:39:18
+        console.log(today.toString()) // Tue May 12 2026 16:39:39 GMT+0900 (한국 표준시)
+    </script>
+</body>
+</html>

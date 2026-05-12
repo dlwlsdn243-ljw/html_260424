@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>input 객체 가져오기</h1>
+
+        <!-- 
+            input tag는 속성에 값이 맴핑되어 있음
+            value 속성으로 값을 가져올 수 있음
+            <h1>innerText / innerHTML</h1>
+            <input> => value
+            - checkbox, radio, select > option태그 내에서 value속성을 부여해줘야지만 선택한 값을 가져올 수 있음.
+            - value, innerText 가져오는 값은 모두 string 처리 됨
+            - string 처리된 겂을 숫자 형태로 사용하기 위해서는 변환이 필요함
+        -->
+
+        <fieldset>
+            <legend>input tag element</legend>
+            name : <input type="text" id="name" placeholder="name..."><br>
+            age : <input type="text" id="age" placeholder="age..."><br>
+            address : <input type="text" id="address" placeholder="address..."><br>
+            <button onclick="clickEvent()">data input</button>
+        </fieldset>
+        <h1 id="printResult"></h1>
+        <ul id="ul"></ul>
+
+        <script>
+            const name = document.getElementById('name');
+            const age = document.getElementById('age');
+            const address = document.getElementById('address');
+            console.log(name);
+            console.log(age);
+            console.log(address);
+
+            function clickEvent(){
+                console.log(name.value)
+                console.log(name.id)
+                // 형변환 안했을 경우 string으로 인지되서 age value값 뒤에 1이 붙는다.
+                console.log(age.value+1, typeof age.value)
+                // number() : 문자를 숫자로 변환 parseInt
+                console.log(Number(age.value)+1, typeof Number(age.value))
+                
+                document.getElementById("printResult").innerText = 
+                `${name.value}(${age.value}) : ${address.value}`
+
+                document.getElementById("ul").innerHTML = 
+                `<li>name : ${name.value}</li>
+                <li>age : ${age.value}</li>
+                <li>address : ${address.value}</li>`
+
+                // 값을 처리하고 나서 input value지우기
+                name.value = ''
+                age.value = ''
+                address.value = ''
+            }
+        </script>
+    </body>
+</html>

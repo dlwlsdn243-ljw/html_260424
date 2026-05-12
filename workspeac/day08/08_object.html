@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <body>
+        <h1>object (객체) : 식별할 수 있는 것을 상세 특징으로 표현하려한 형식</h1>
+
+        <!-- 
+            - const 상수로 선언하는 것이 일반적 : 객체의 지속성을 확보하기 위함
+            { } key : value 
+              {
+                key : value,
+                key : value,
+                key : value,
+                ...
+              }
+                -key 값은 같은 객체 내에서는 중복 불가능 (고유 키)
+                -value는 중복 가능
+                -key는 string
+                -value는 값으로 사용할 수 있는 데이터 타입은 제한이 없음
+                -value로 function을 정의하면 그 함수(익명함수 처럼 정의)를 메서드라고 부름
+                 익명함수는 key함수명이 됨
+        -->
+
+        <script>
+            const car = {
+                mane: 'myCar',
+                year: 2025,
+                color: 'red'
+            }
+            console.log(car)
+            // car = 100; //불가능(선언한 객체를 지키루 있음 - 지속성 확보)
+            console.log(car.mane)
+            console.log(car.color)
+            car.door = 4; // 객체의 속성을 추가할 때
+            car.name = 'sonata' // key 값의 value 변경
+            console.log(car)
+
+            let myCar = {
+                name:'yourCar',
+                uear: 2026,
+                color: 'yello'
+            }
+            console.log(myCar)
+            myCar = 100;
+            //myCar의 객체는 사라짐 (객체를 선언하고 활용하려고 했던 목적이 없어짐)
+            console.log(myCar)
+        </script>
+
+        <script>
+            const me ={
+                firstName: 'hong',
+                lastName: 'gildong',
+                age: 20,
+                address: 'seoul',
+                "hobby": 'reading',
+                avail:{
+                    year:2025,
+                    title: 'javascript',
+                    ver: 'ES6+',
+                    project: 'javaScript Project',
+                    intro: function() {
+                        console.log('객체 내부에서 선언된 함수')
+                        console.log(me.firstName, me.lastName)
+                        return `${this.title} : ${this.ver}`
+                    }
+                },
+                year:2026
+            }
+            console.log(me)
+            // 이름: 객체명.key => value리턴
+            console.log(me.firstName, me.lastName)
+            // 주소
+            console.log(me.address)
+            console.log(me.avail.title)
+            console.log(me.avail.intro) // 함수 지목(실행x)
+            console.log(me.avail.intro()) // 함수 실행(실행o)            
+
+            let keyName = 'age'
+            // []
+            console.log(me['hobby'])
+            console.log(me[keyName])
+            console.log(me['avail']['intro']())
+            console.log(me.avail['title'])
+            console.log(me['avail'].ver)
+
+            console.log('---------------------------------')
+        </script>
+
+        <script>
+                /*
+                const me ={
+                firstName: 'hong',
+                lastName: 'gildong',
+                age: 20,
+                address: 'seoul',
+                "hobby": 'reading',
+                avail:{
+                    year:2025,
+                    title: 'javascript',
+                    ver: 'ES6+',
+                    project: 'javaScript Project',
+                    intro: function() {
+                        console.log('객체 내부에서 선언된 함수')
+                        console.log(me.firstName, me.lastName)
+                        return `${this.title} : ${this.ver}`
+                    }
+                },
+                year:2026
+            }
+                */
+
+                // 좋아하는 가수의 정보를 담은 객체 생성 => 출력
+                // name, age, playlist { , , }, jukebox(palylist를 콘솔 출력하는 함수)
+
+                const jukebox={
+                    name:'아이유',
+                    age: 33,
+                    playlist: ['Never Ending Story', '네모의 꿈', '빨간운동화']
+                }
+                console.log(jukebox)
+                console.log(jukebox.playlist)
+
+                const musician={
+                    name: 'IU',
+                    age:20,
+                    address: 'seoul',
+                    playlist:{
+                        first:'너와나',
+                        second:'좋은날',
+                        third: '밤편지'
+                    },
+                    jukebox: function(p1,p2,p3){
+                        console.log(this.playlist.first, this.playlist.second, musician.playlist.third)
+                        console.log(p1,p2,p3)
+                    }
+                }
+                console.log(musician.name)
+                console.log(musician.age)
+                console.log(musician.address)
+                console.log(musician.playlist.first)
+                console.log(musician.playlist.second)
+                console.log(musician.playlist.third)
+
+                musician.jukebox();
+                let p1 = '어푸'
+                let p2 = '라일락'
+                let p3 = '후라이의 꿈'
+                musician.jukebox(p1,p2,p3)
+
+        </script>
+    </body>
+</html>

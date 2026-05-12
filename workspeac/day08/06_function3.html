@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>함수 내 호출</h1>
+    <!-- 
+        함수 안에 함수를 호출
+    -->
+        <script>
+            function subFunc(p1,p2){
+                return p1 - p2
+            }
+
+            function sumFunc(p1,p2){
+                console.log(subFunc(p1,p2))
+                return p1 + p2
+            }
+            console.log(100,200)
+
+            function func1(p1,p2){
+                return p1 + p2
+            }
+            function fun2(p1,p2){
+                return func1(p1,p2)
+            }
+            function fun3(p1,p2){
+                return fun2(p1,p2)
+            }
+            const reuslt = fun3(10,20)
+            console.log(reuslt)
+
+            function myFunc(myName){
+                console.log('myFunc function')
+                return `hello~!! ${myName}`
+            }
+
+            function myFuncOld(myName){
+                console.log('myFuncold function')
+                return `hello~!! ${myName}`
+            }
+
+            console.log(myFunc('홍길동'))
+            console.log(myFuncOld('홍길동'))
+
+        </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>자바스크립트 객체 생성</h1>
+    <fieldset>
+        <legend>나의 소개</legend>
+        이름 : <input type="text" id="name" placeholder="name..."><br>
+        주소 : <input type="text" id="addr" placeholder="address..."><br>
+        좋아하는 리스트 <br>
+        1.: <input type="text" id="favor1"> <br>
+        2.: <input type="text" id="favor2"> <br>
+        3.: <input type="text" id="favor3"> <br>
+        이메일 : <input type="text" id="email" placeholder="email..."> <br>
+        <button onclick="getDatas()"> 객체로 전송 </button>
+    </fieldset>
+    <button id="btn">테이블로 출력</button>
+
+    <table id="table" border="1"></table>
+
+    <script>
+        const me = {
+            name:'',
+            address:'',
+            favors:{
+                favor1:'',
+                favor2:'',
+                favor3:''
+            },
+            email:''
+        };
+        console.log(me);
+
+        // 화살표 함수로 변경한 경우.
+        document.getElementById('btn').addEventListener('click', ()=>{
+            const table = document.getElementById('table');
+            let str = `<tbody>`;
+                str += `<tr><td>이름</td><td>${me.name}</td></tr>`;
+                str += `<tr><td>주소</td><td>${me.address}</td></tr>`;
+                str += `<tr><td>좋아하는 리스트</td><td>
+                    <ul>
+                        <li>${me.favors.favor1}</li>
+                        <li>${me.favors.favor2}</li>
+                        <li>${me.favors.favor3}</li>
+                    </ul>
+                </td></tr>`;
+                str += `<tr><td>이메일</td><td>${me.email}</td></tr>`;            
+                str += `</tbody>`;
+                table.innerHTML = str;
+        })
+
+        function getDatas(){
+            // 객체의 key가 없어도 추가하면 추가
+            // 객체명.key = value; 
+            me.name = document.getElementById('name').value;
+            me.address = document.getElementById('addr').value;
+            me.favors.favor1 = document.getElementById('favor1').value;
+            me.favors.favor2 = document.getElementById('favor2').value;
+            me.favors.favor3 = document.getElementById('favor3').value;
+            me.email = document.getElementById('email').value;
+            console.log(me);
+        }
+    </script>
+</body>
+</html>

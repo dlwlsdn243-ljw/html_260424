@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> dataType : 변수나 상수에 할당할 수 있는 값의 종류</h1>
+    <!-- 
+        숫자 : number => 정수, 실수, NaN(Not a Number : 숫자가 아님)
+
+        문자 : string => "", '', `` 감싼 값들
+
+        블리언 : boolean => true, false
+
+        객체 : 오브젝트(object) => 1개 이상의 데이터가 특정한 구조를 가지고 있는 형태
+            -{키 : 값} {} : 아무것도 없는 객체도 1개의 객체로 취급
+
+        배열 : array => [1,2,3,4] => 자바에서의 리스트와 비슷한 형태 (index, length가 있음)
+
+        미지정값 : undefined => 값이 할당되지 않음
+
+        알수 없는 값 : null => 인지가 안됨
+
+    -->
+
+    <script>
+        let num = 123;
+        let str = "123"
+        let bool = true
+        let obj = { 
+            name :'hong',
+            age :20,
+            fList : [1,2,3],
+            fObj : {
+                ket : "value"
+            }
+        }
+        let obj2 = new Object() // js에서 제공하는 내장객체 => 잘 안씀
+        
+        let arr = [1,2,3,'a','b', [1,2,3], {}]
+        let arr2 = new Array();
+
+        let undi = undefined
+        let undi2;
+
+        let ne = null
+
+        console.log(typeof num)
+        console.log(typeof str)
+        console.log(typeof bool)
+        console.log(typeof obj)
+        console.log(typeof obj2)
+        console.log(typeof arr)
+        console.log(typeof arr2)
+        console.log(typeof undi)
+        console.log(typeof undi2)
+        console.log(typeof ne)
+    </script>
+
+    <!-- 
+        기본 자료형 : 값이 메모리에 직접 할당되어 있는 값
+            number, boolean, string (참조형이지만 편의상 기본자료형 처럼 사용)
+        참조 자료형 : 값이 저장되어 있는 주소를 저장
+            string, array, object, function, null undefined
+
+        == 같다 != 같지않다. ==> 값만 비교
+        123 == "123" true
+        
+        === 같다 !== 같지않다 ==> 값 + 타입을 비교
+        123 === "123" false
+    -->
+
+<script>
+    let num1 = 10
+    let num2 = '10'
+    console.log(num1 == num2) // true
+    console.log(num1 === num2) // false
+</script>
+</body>
+</html>

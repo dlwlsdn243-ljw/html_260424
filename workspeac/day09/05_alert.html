@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        confirm 창을 띄어 확인버튼을 누르면 printResult 영역에 '확인버튼 클릭' / '취소버튼 클릭' 문구를 출력
+    -->
+
+    <h1 id="printResult"></h1>
+    <script>
+        const printResult = document.getElementById('printResult')
+
+        let con = confirm('pass')
+        printResult.innerText = con ? '확인버튼 클릭' : '취소버튼 클릭'
+
+        //if(con){
+        //    printResult.innerText = '확인버튼 클릭'
+        //} else{
+        //    printResult.innerText = '취소버튼 클릭'
+        //}
+
+    </script>
+</body>
+</html>
