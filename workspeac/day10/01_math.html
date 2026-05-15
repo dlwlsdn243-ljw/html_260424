@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> 수학관련 함수</h1>
+    <!-- 
+        - math.method : 수학 관련한 함수 제공
+        - java와 동일
+        - Math.round(), Math.floor(), Math.ceil 
+            정수로만 표현
+
+        - Math.max(), Math.min()
+
+        - Math.random() : 0(포함) ~ 1(미포함)의 난수를 리턴
+            난수 발생
+            Math..floor(Math.random()*count) + start
+    -->
+
+    <button id="btn">난수발생</button>
+    <h1 id="printResult"></h1>
+
+    <script>
+        // 1~10까지의 난수
+        let num = Math.floor(Math.random()*10)+1;
+        console.log(num)
+
+        //범위의 값을 난수로 밸생
+        // 시작값이 1이 아니라면 20~50 start=21 / count = 30
+        // min,max / start = min / count = (max-min)
+
+        let max = 50;
+        let min = 21;
+        let num2 = Math.floor(Math.random() * (max-min) +min)
+        console.log(num2)
+
+        // 50~100까지의 난수 중 하나를 printResult에 출력하는 함수를 생성 => btn적용
+        let max1 = 100;
+        let min1 = 51
+
+        document.getElementById('btn').addEventListener('click',()=>{
+            const printResult = document.getElementById('printResult')
+            let num3 = Math.floor(Math.random() * (max1-min1+1) +min1)
+            printResult.innerText = `${num3}`
+        })
+
+    </script>
+</body>
+</html>

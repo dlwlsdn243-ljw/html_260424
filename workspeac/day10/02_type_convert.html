@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        type_convert : 타입변환 == casting(형변한)
+    </h1>
+    <!-- 
+        문자 -> 숫자 : 
+            Number('숫자로 변환 가능한 문자')
+            ParseInt('정수만 변환')
+            ParseFloat('실수만 변환')
+        숫자 -> 문자 : 
+            123.toString()
+        문자 -> boolean:
+            Boolean('true')
+        boolean -> 문자 :
+            String(true)
+        숫자 -> boolean :
+            Boolean(1) / Boolean(2)
+        boolean -> 숫자 : 
+            Number(true) / Number(false)
+            true = 1 / false = 0
+
+        boolean
+        - 일반적인 데이터 타입 중 값이 있다. => true
+        - 정확히 정의되지 않은 개념은 모두 false
+            0, 빈문자열("", '', ``), undefined, null, NaN
+    -->
+
+    <script>
+        console.log(String(true), typeof String(true))
+        console.log(Boolean("", typeof Boolean('')))
+    </script>
+</body>
+</html>

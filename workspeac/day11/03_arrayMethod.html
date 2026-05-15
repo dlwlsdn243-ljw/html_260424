@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>배열 관련 메서드</h1>
+    <h1>유사배열, 혼합배열을 사용 제한이 되는 메서드들이 있음</h1>
+
+    <!-- 
+        []
+        - 유사배열(HTMLCollection / NodeList)
+        - 혼합배열 myArray = [1,2,3,'1','b','c',[1,2,3], {key:'value'}]
+        - 유사배열, 혼합배열에서는 사용 제한이 되는 메서드들도 있다.
+    -->
+
+    <!-- 
+        - array.push(value) : 배열의 마지막 위치에 value추가
+            => 배열 길이를 리턴
+        - array.pop() : 배열의 마지막 요소를 제거
+            => 제거한 요소를 리턴
+        
+        - array.shift() : 배열의 첫 요소를 제거
+            => 제거한 요소를 리턴
+        - array.unshift(valet) : 배열의 첫 요소에 value를 추가
+            => 배열의 길이를 리턴
+        
+        -array.join(value) : 배열의 값에 특별한 value를 추가햐여 하나의 문자열로 리턴
+            => 1 2 3 array.join('.') => 1,2,3
+            => split(String 메서드 / 구분자를 기준으로 잘라서 배열로 리턴)
+        -->
+
+        <script>
+            const h1 = document.getElementsByTagName('h1');
+            console.log('h1')
+
+            const h = document.querySelectorAll('h1')
+            console.log(h)
+
+            let str = 'apple,banana,kiwi'
+            let array = str.split(',')
+            console.log(array)
+            console.log(array.join('/'))
+
+            console.log('------------------')
+
+            array.push('orange')
+            console.log(array)
+            console.log(array.push('orange')) // length 리턴
+            // 배열은 중복 가능 => index로 구분이 가능하기 때문에
+
+
+            console.log(array)
+            console.log(array.pop())
+            console.log(array)
+
+            // shif 배열의 첫요소 제거
+            console.log(array.shift())
+            console.log(array)
+
+            // 일반적으로 빈 배열을 만들어 두고 하나씩 추가하여 사용
+            const array1 = [];
+
+        </script>
+</body>
+</html>

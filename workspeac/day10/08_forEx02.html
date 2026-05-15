@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">구구단 출력</button>
+    <table id="table" border="1"></table>
+   
+    <script>
+        document.getElementById('btn').addEventListener('click', ()=>{
+            const table = document.getElementById('table');
+
+            let str = ''
+            for(let i=2; i<=9; i++){
+                str += `<tr>`
+                for (let j=1; j<=9; j++){
+                    str += `<td>${i} x ${j} = ${i*j}</td>`
+                }
+                str += `</tr>`
+            }
+            table.innerHTML = str;
+        })
+    </script>
+</body>
+</html>

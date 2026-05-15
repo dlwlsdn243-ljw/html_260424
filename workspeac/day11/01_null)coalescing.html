@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        null_coalescing연산자 : null 병합 연산자 ES2020버전 부터 지원
+    </h1>
+    <!-- 
+        - 값이 null, undefined 를 판단하여 해당 값의 대체값을 출력하는 연산자
+        - 좌측의 항이 null ro undefined면 우측값을 출력
+        - 좌측의 항이 null ro undefined아니면 좌측값을 출력
+        - ?? 로 표시
+    -->
+
+    <script>
+        // 해당값을 대체하는 값을 출력
+        let n; // undefined
+        
+        console.log(n); // undefined
+
+        let n2;
+        console.log(n2 ?? '우측항 출력')
+
+        let n3 = null
+        console.log(n3 ?? 'null 가능')
+
+        console.log('' ?? '빈 문자 가능?') // 불가능
+
+        console.log(NaN ?? 'NaN은 가능?') // 불가능
+
+        console.log(0 ?? '0은 가능?') // 불가능
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>조건문</h1>
+    <!-- 
+        if / switch : 자바와 동일한 문법 구조를 가지고 있음.
+        if, if~else, else if 전부 동일
+    -->
+    <fieldset>
+        숫자 입력: <input type="text" id="number"> <br>
+        <button id="btn">판별</button>
+        <h1 id="result">홀수/짝수 판별</h1>
+    </fieldset>
+
+    <script>
+
+        // 미리 정의되어있는 함수를 호출 시 함수에 ()쓰면 안됨.
+        document.getElementById('btn').addEventListener('click', check); 
+
+        // 홀수 / 짝수 판별 2로 나눈 나머지가 = 0 "짝수" / "홀수"
+        function check(){
+            let num = document.getElementById('number').value;
+            const result = document.getElementById('result');
+
+            // NaN => isNaN(num) => 숫자가 아니면 true / 숫자면 false
+            // if(num.trim() === '')  => isBlank() 존재하지 않음. 
+            console.log(isNaN(num));
+
+            let str = '';
+
+            if(isBlank(num)){
+                str = '값이 없습니다.';
+            }else if(isNaN(num)){
+                str = '숫자만 입력 가능합니다.';
+            }else{
+                num = Number(num);
+                if(num % 2 == 0){
+                    str = '짝수';
+                }else {
+                    str = '홀수';
+                }
+            }
+
+            result.innerText = str;
+        }
+
+        function isBlank(value){
+            /* null, undefined, "", "         " */
+            return value == null || value.trim() === '';
+        }
+    </script>
+</body>
+</html>

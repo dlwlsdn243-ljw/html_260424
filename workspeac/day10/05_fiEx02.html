@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        이름, 국어, 영어, 수학 점수를 입력받고 계산 버튼을 클릭하면
+        합계, 평균, 평균 80점 이상이면 합격
+        국어, 영어, 수학 점수가 문자거나, 공백이거나 0~100 사이의 값이 아니라면 alert창을 띄워 안내
+    -->
+
+    <fieldset>
+        <legend>시험점수</legend>
+        이름 : <input type="text" name="" id="name"> <br>
+        국어점수 : <input type="text" name="" id="kor"> <br>
+        영어점수 : <input type="text" name="" id="eng"> <br>
+        수학점수 : <input type="text" name="" id="math"> <br>
+        <button id="btn">계산</button>
+    </fieldset>
+    <h1 id="printResult"></h1>
+
+    <script>
+        document.getElementById('btn').addEventListener('click',()=>{
+            document.getElementById('printResult')
+            const name = document.getElementById('name')
+            const kor = document.getElementById('kor')
+            const eng = document.getElementById('eng')
+            const math = document.getElementById('math')
+            
+            let kor1 = kor.value
+            let eng1 = eng.value
+            let math1 = math.value
+
+            let sum = Number(kor1)+Number(eng1)+Number(math1)
+            let avg = Number(sum/3).toFixed(2)
+
+            let rank = ''
+            if (isBlank(kor.value) || isBlank(eng.value) || isBlank(math.value)){
+                rank = '값이 없습니다.'
+            } else if (isNaN(kor1) || isNaN(eng1) ||isNaN(math1)){
+                rank = '숫자만 입력 가능합니다.'
+            } else{
+                if (avg >= 80){
+                    rank = '합격'
+                } else{
+                    rank = '불합격'
+                }
+            }
+
+
+            printResult.innerText=
+            `이름 : ${name.value}
+            국어점수 : ${kor1}
+            영어점수 : ${eng1}
+            수학점수 : ${math1}
+            합계점수 : ${sum}
+            평균점수 : ${avg}
+            합격여부 : ${rank}
+            `
+        })
+        function isBlank(value){
+            /* null, undefined, "", "         " */
+            return value == null || value.trim() === '';
+        }
+    </script>
+</body>
+</html>

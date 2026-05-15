@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>정렬 (sort) : 배열의 정렬은 문자기반으로 정렬이 됨</h1>
+    <!-- 
+        array.sort() : 문자기준 오름차순 정렬 (ascending)
+        array.reverse() : 문자기준 역정력 (descending)
+        - 정렬할 배열의 원소가 숫자일 경우
+          콜백함수를 이용하여 내부 연산기법을 이용
+
+          array.sort(function(a,b){return a - b}) : 오름차순
+          array.sort(function(a,b){return b - a}) : 내림차순
+    -->
+
+    <script>
+        const numArray=[1,2,3,4,5,8,7,4,5,6];
+        const strArray = ['a','k','l','y','p','i','e'];
+        
+        //console.log(numArray.sort())
+        //console.log(numArray.reverse())
+        
+        //console.log(strArray.sort())
+        //console.log(strArray.reverse())
+
+        console.log('오름차순')
+        numArray.sort(function(a,b){
+            return a - b;
+        });
+        console.log(numArray)
+        
+        console.log('내림차순')
+        numArray.sort(function(a,b){
+            return b - a;
+        });
+        console.log(numArray)
+        
+        const cars = [
+            {
+                type:'Volvo', year:2025
+            },
+            {
+                type:'BMW', year:2023
+            },
+            {
+                type:'Benz', year:2026
+            }
+        ]
+        // 연도 기준으로 최신식으로 정렬
+        console.log('문제1')
+        const result = cars.sort((a,b)=> {
+            return b.year - a.year
+        });
+        console.log(result)
+
+        // type 기준으로 오름차순 정렬
+        // a.localeCompare(b) => 오름차순 / b.localeCompare(a) => 내림차순
+        // 문자열만 사용 가능
+        console.log('문제2')
+        const result2 = cars.sort((a,b)=>{
+            return a.type.localeCompare(b.type)
+        });
+        console.log(result2)
+
+        // myArr 배열을 생성하여 1~100범위의 랜덤수를 6개 생성하여 저장 => 출력
+        // 오름차순 정렬 => 출력
+        console.log('배열 문제')
+        const myArr = [];
+
+        for (let i=1; i<=6; i++){
+            let num = Math.floor(Math.random()*100)+1;
+            myArr.push(num)
+        }
+        console.log(myArr)
+        console.log('배열 문제 오름차순')
+        myArr.sort((a,b)=>a-b)
+        console.log(myArr)
+        
+        const user = [
+            {name : '홍길동', age : 40},
+            {name : '봉미선', age : 30},
+            {name : '짱구', age : 15},
+            {name : '이순신', age : 50}
+        ]
+        // 이름순으로 오름차순 => 출력
+        console.log('이름순으로 오름차순')
+        const result3 = user.sort((a,b)=>{
+            return a.name.localeCompare(b.name)
+        });
+        console.log(result3)
+        
+        // 나이순으로 내림차순 => 출력
+        console.log('나이순으로 내림차순')
+        const result4 = user.sort((a,b)=>{
+            return b.age - a.age
+        })
+        console.log(result4)
+
+    </script>
+</body>
+</html>

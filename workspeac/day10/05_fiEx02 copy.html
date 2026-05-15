@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        이름, 국어, 영어, 수학 점수를 입력받고 계산 버튼을 클릭하면
+        합계, 평균, 평균이 80점 이상이면 합격
+        국어, 영어, 수학 점수가 문자 거나, 공백이거나 0~100 사이의 값이 아니라면
+        alert 창을 띄워 안내
+    -->
+    <fieldset>
+        <legend>성적표</legend>
+        이름 : <input type="text" id="name"> <br>
+        국어 : <input type="text" id="kor"> <br>
+        영어 : <input type="text" id="eng"> <br>
+        수학 : <input type="text" id="math"> <br>
+        <button id="btn">계산</button>
+    </fieldset>
+    <ul id="ul">
+
+    </ul>
+    <script>
+
+        document.getElementById('btn').addEventListener('click', clickEvent);
+
+        function isBlank(value){
+            /* null, undefined, "", "         " */
+            return value == null || value.trim() === '';
+        }
+
+        function check(num, id){
+            // num 점수 , id 해당 점수의 과목
+            if(isBlank(num)){
+                alert('숫자가 입력되지 않았습니다. 다시 입력해주세요.');
+                return false;
+            } else if(isNaN(num)){
+                alert('잘못된 값입니다. 다시 입력해주세요.');
+                document.getElementById(id).value = '';
+                return false;
+            }else{
+                num = Number(num);
+                if(num <0 || num > 100){
+                    alert(`${id}를 0~100사이의 값을 입력해주세요.`);
+                    document.getElementById(id).value = '';
+                    return false
+                }else{
+                    return true;
+                }
+            }
+        }
+
+        function clickEvent(){
+            let name = document.getElementById('name').value;
+            let kor = document.getElementById('kor').value;
+            let eng = document.getElementById('eng').value;
+            let math = document.getElementById('math').value;
+
+            if(check(kor,'kor') && check(eng, 'eng') && check(math, 'math')){
+                kor = Number(kor);
+                eng = Number(eng);
+                math = Number(math);
+                let sum = kor + eng + math;
+                let avg = sum / 3;
+                let pass = avg >=80 ? 'pass' : 'fail';
+    
+                document.getElementById('ul').innerHTML = `
+                <li>합계:${sum}</li>
+                <li>평균:${avg.toFixed(2)}</li>
+                <li>${pass}</li>
+                `;
+
+                document.getElementById('kor').value = '';
+                document.getElementById('eng').value = '';
+                document.getElementById('math').value = '';
+
+            }else{
+                document.getElementById('ul').innerHTML = '';
+            }
+
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        array Iteration method : 순환구조에서 사용하는 메서드들...
+    </h1>
+    <!-- 
+        - array.reduce(callback function(total, value, index, self), [init]);
+          : reduce(리듀서) 함수를 실행하고, 그 결과의 누적값을 리턴
+        - array.every(callback function(value, index, self))
+          : 콜백함수의 리턴 조건에 모든 배열이 만족하면 true / false (AND)
+        - array.some(callback function(value, index, self))
+          : 콜백함수의 리턴 조건에 하나의 값이 만족하면 true / false (OR)
+        - array.indexOf('str', [start index]);
+          : 해당 문자가 존재하면 index 리턴
+        - array.lastIndexOf('str', [start index]);
+          : 뒤에서 부터 검색 해당 문자가 존재하면 index 리턴
+        - array.find(callback function(value, index, self))
+          : 검색 조건에 만족하는 첫번째 값을 리턴
+        - array.findIndex(callback function(value, index, self))
+          : 검색 조건에 만족하는 첫번째 번지를 리턴
+        - Array.from('객체') : 순서가 있거나, 순환 구조를 갖고있는 객체를 배열로 변환
+
+        - array.includes('str') : 배열에 str 값이 있으면 true / false
+        - array.keys() : index만 배열로 리턴
+        - array.entries() : index:value 구조값을 만들어서 배열에 담아 리턴
+    -->
+
+    <script>
+        const fruits = ['apple','banana','orange','apple','mango'];
+
+        let key = fruits.keys();
+        console.log(key); // 객체만 출력 (내용이 보이지 않음)
+        //key.forEach(v => console.log(v));
+        
+        console.log("----------");
+        for(let k of key){
+            console.log(k);
+        }
+
+        let entry = fruits.entries();
+        console.log(entry);
+        // [ [],[],[],[] ]
+        //for(let en of entry){
+        //    console.log(en);
+        //}
+
+        console.log("--entries().forEach()--");
+        entry.forEach(v => console.log(v));
+
+
+        console.log("---------");
+        // 값이 없으면 -1을 리턴
+        let index = fruits.indexOf('apple', 1);
+        console.log(index);
+
+        console.log("---------");
+
+        const arr = [7,5,4,8,1,2,6,9,3,5,4,1,2];
+        // reduce() : 누적값 리턴
+        let sum = arr.reduce(function(total, value){
+            return total + value;
+        }, 100);
+        console.log(sum);
+
+        // find() : 조건에 맞는 첫번재 값 리턴
+        let findArr = arr.find((v)=>{
+            return v > 50;
+        });
+        console.log(findArr ?? '없음'); // 조건에 맞는 값이 없다면 undefined
+
+        // every => and  / some => or
+        let even = arr.every(v => v % 2 == 0); // 전부 짝수인지 확인
+        console.log(even); // false
+
+        let even2 = arr.some( v => v % 2 == 0); // 짝수가 포함되어 있는지 확인
+        console.log(even2);
+    </script>
+</body>
+</html>

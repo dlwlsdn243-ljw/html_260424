@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        JSON(JavaScriip Object Notation)
+    </h1>
+    <!-- 
+        많은 양의 데이터를 실시간으로 전달되어야 할때 가장 효율적이고 편리한 데이터 전송 방식 JSON
+        - JSON : javascript 객체를 구조화괸 데이터로 표형하기 위한 문자 기반의 표준 포멧
+
+        - 화면 <-> 서버 데이터를 전송할 때 일반적으로 사용
+        XML
+        <name>IU</name>
+        <age>20</age>
+
+        JDON
+        {
+            name : 'IU'
+            age : 20
+        }
+
+        - 자바스크립트의 객체 형태를 띄우기 때문에 구조 파악이 쉽고 제작도 쉽다. XML -> JSON
+        - 모든 웹 분야에서 화면은 자바 스크립트가 모든 프론트에서 호환
+        - 데이터를 수집, 출력 하는 용도로 거의 모든 플랫폼에서 사용되고 있음
+
+        - object -> string : 원하는 서버로 전송
+        - string -> 각자 서버에서 처리할 수 있는 객채로 변환 (json 라이브러리)
+
+        - 자바스큷트에서는 JSON 객체를 string 변환하고, string -> object 변경하는 명령어가 이미 있음
+        JSON.stringify(object) => string 변경 (원하는 서버로 데이터 전송)
+        JSON.parse(string) => object 변경
+    -->
+
+    <script>
+        const top1 = {
+            '거래상위' : [
+            {
+                name : 'KODEX 200선물인버스2X',
+                price : 104,
+                updown : -4,
+                ratio : -3.70
+            },
+            {
+                name : 'KODEX 인버스',
+                price : 1067,
+                updown : -20,
+                ratio : -1.84
+            },
+            {
+                name : 'TIGER 200선물인버스2X',
+                price : 112,
+                updown : -3,
+                ratio : -8.24
+            }
+            ],
+            '상승 ' : [
+            {
+                name : '폴래드',
+                price : 50000,
+                updown : 15000,
+                ratio : 300
+            },
+            {
+                name : '코아시아씨엠',
+                price : 1482,
+                updown : 342,
+                ratio : 30
+            },
+            {
+                name : '소록스',
+                price : 4290,
+                updown : 990,
+                ratio : 30
+            }
+            ],
+            '하락' : [
+            {
+                name : '유디엠텍',
+                price : 3580,
+                updown : -1050,
+                ratio : -22.68
+            },
+            {
+                name : '가온전선',
+                price : 399000,
+                updown : -106000,
+                ratio : -20.99
+            },
+            {
+                name : '메데포스트',
+                price : 17610,
+                updown : -4540,
+                ratio : -20.50
+            }
+            ],
+            '시가총액 상위' : [
+            {
+                name : '삼성전자',
+                price : 296000,
+                updown : 12000,
+                ratio : 4.23
+            },
+            {
+                name : 'sk하이닉스',
+                price : 1970000,
+                updown : -6000,
+                ratio : -0.3
+            },
+            {
+                name : '삼성전자우',
+                price : 193700,
+                updown : 4600,
+                ratio : 2.43
+            },
+            ]
+        }
+
+        console.log(top1) // object형태
+        // object -> string
+        let topString = JSON.stringify(top1);
+        console.log(topString) // "{object}"
+
+        let topObject = JSON.parse(topString)
+        console.log(topObject)
+    </script>
+</body>
+</html>

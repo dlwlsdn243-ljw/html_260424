@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>반복문 : for, while, do~while</h1>
+    <!-- /
+        - 반복문의 문법은 java문법과 동일 
+        - for : 반복의 횟수가 명확할 때 사용
+        
+        - while, do~while : 반복횟수가 명확하지 않을 때
+
+        - 모든 조건은 true일 때 반복
+        - 조건식이 계속 true면 무한루프에 빠질 수 있음
+        - 코드안에 조선식의 값이 false로 바뀔 수 있는 구문이 반드시 있어야 함
+        - break를 통해 조건식을 동반하여 빠져나갈 수 있음
+    -->
+
+    <script>
+        for (let i=0; i<=10; i++){
+            console.log(i);
+        }
+
+        console.log('--------------------')
+
+        let count = 1;
+        while (count<=10){
+            console.log(count);
+            count++;
+        }
+
+        // 구구단 3단 출력
+        for (let i=1; i<=9; i++){
+            for (let j=1; j<=9; j++){
+                console.log(`${i} x ${j} = ${i*j}`)
+            }
+        }
+
+        let dan1 = 3;
+        let incre = 1;
+        while(incre<10){
+            console.log(dan1 * incre)
+            incre++;
+        }
+    </script>
+</body>
+</html>

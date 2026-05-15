@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>구구단</legend>
+        구구단 : <input type="text" name="" id="dan"> <br>
+        <button id="btn">구구단 출력</button>
+        <button id="reset">초기화</button>
+        <ul id="ul"></ul>
+       
+    </fieldset>
+
+    <script>
+        document.getElementById('reset').addEventListener('click', ()=>{
+            //document.getElementById('ul').innerHTML='';
+            location.reload(); //새로고침
+        })
+        
+
+        document.getElementById('btn').addEventListener('click', ()=>{
+            let dan = document.getElementById('dan').value
+
+            dan = Number(dan);
+            let incre = 1
+            let str = ''
+            while (incre<10){
+                str += `<li>${dan} x ${incre} = ${dan*incre}</li>`
+                incre++
+                document.getElementById('ul').innerHTML = str;
+            }
+        })
+    </script>
+</body>
+</html>
