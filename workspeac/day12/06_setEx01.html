@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        set을 생성하고, 1~10까지 랜덤수 5개를 채워서 출력 (중복x)
+
+        - 앝은복사 (shallow copy) : 원봉객체의 주소를 복사 / 같은 주소를 사용하는 방식
+        - 깊은복사 (deep copy) : 실제 데이터를 모두 복사하여 원본과 완전히 분리된 독립된  
+    -->
+    <h1 id="result"></h1>
+
+    <script>
+        const set = new Set();
+        const result = document.getElementById('result')
+        while(set.size<5){
+            let num = Math.floor(Math.random()*10)+1
+            set.add(num)
+        }
+        console.log(set)
+        result.innerHTML=set
+
+        // 1. string
+        let str = ''
+        set.forEach(v => str += `${v}`)
+        result.innerHTML=str
+
+        // 2-1. 배열로 변환
+        // spread operator (스프레드 연산자, 전개구문, ...) : 앝은복사
+        const arr = [...set];
+        result.innerHTML = arr
+        console.log(arr)
+
+        // 2-2 Array.from() 메서드 이용 : 앝은복사
+        // 유사배열 객체나 이터러블한 객체를 얕은 복사하여 새로운 배열 객체로 생성
+        const arr2 = Array.from(set)
+        result.innerHTML = arr2
+        console.log(arr2)
+
+        // 깊은복사 
+        const arr3 = [] //메모리에 새 주소로 값을 배정
+        set.forEach(v =>{
+            arr.push(v)
+        })
+        console.log(arr3)
+    </script>
+</body>
+</html>

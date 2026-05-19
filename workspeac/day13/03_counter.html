@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+    button 2개 준비
+    - 0 + 
+    + => 1씩증가
+    - => 1씩감소 (값이 0이면 더이상 감소x)
+    -->
+    <button id="+">+</button>
+    <span id="span">0</span>
+    <button id="-">-</button>
+
+    <script>
+        let count = 0
+        const span = document.getElementById('span');
+        document.getElementById('+').addEventListener('click',()=>{
+            count++
+            span.innerHTML=count
+        })
+
+        document.getElementById('-').addEventListener('click', ()=>{
+            if(count>0){
+            count--
+            span.innerHTML=count
+            }
+        })
+    </script>
+    
+</body>
+</html>

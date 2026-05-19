@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button>img{
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 가위바위보 이미지를 버튼 태그에 넣어 선택 -->
+     <button><img id="0" src="../image/가위.png" alt=""></button>
+     <button><img id="1" src="../image/바위.png" alt=""></button>
+     <button><img id="2" src="../image/보.png" alt=""></button>
+     <h1 id="result"></h1>
+     <!-- 
+        player:가위 / com:바위   player가 졌습니다.
+        현재 전적
+        승:9 / 무:6 / 패:7
+        승률 : 56.25%
+    -->
+    <script>
+        // 전체 화면에 이벤트를 달아주는 방법
+        document.addEventListener('click',(e)=>{
+            console.log(e.target.id);
+            // 동적으로 생기는 모든 객체에 이벤트 추가 가능.
+
+            const idAll = ['0','1','2'];
+
+            if(idAll.includes(e.target.id)){
+                play(e.target.id);
+            }
+        });
+
+        // 승, 무, 패를 기록하는 변수 전역변수로 사용해야 함.
+        //let win=0;
+        //let draw=0;
+        //let lose=0;
+
+        const resultCount = {
+            win:0,
+            draw:0,
+            lose:0
+        }
+
+        function play(player){
+            const playStr = ['가위','바위','보'];
+            let com = randomNumber();
+
+            let result = getWinner(player, com);
+
+            resultCount[result]++;
+
+            // 결과 출력
+            let str = `player : ${playStr[player]} / com : ${playStr[com]} => player ${result} \n`;
+            str += `현재 전적 \n`;
+            str += `win: ${resultCount.win}  /  draw: ${resultCount.draw}  /  lose: ${resultCount.lose} \n`;
+            str += `승률 : ${getWinRate().toFixed(2)}%`;
+
+            document.getElementById('result').innerText = str;
+
+
+        }
+
+        // 랜덤 값을 리턴하는 함수
+        function randomNumber(){
+            return Math.floor(Math.random()*3);
+        }
+
+        // 결과 (승, 무, 패)를 리턴하는 함수
+        function getWinner(playerChoice, comChoice){
+            if(playerChoice == comChoice){
+                return 'draw';
+            }else if(
+                (playerChoice==0 && comChoice==2) ||
+                (playerChoice==1 && comChoice==0) ||
+                (playerChoice==2 && comChoice==1)
+            ){
+                return 'win';
+            }else{
+                return 'lose';
+            }
+        }
+
+        // 승률을 계산하는 함수
+        function getWinRate(){
+            let sum = resultCount.win + resultCount.draw + resultCount.lose;
+
+            return resultCount.win != 0 ?
+                (resultCount.win / (sum - resultCount.draw))*100 : 0;
+        }
+
+
+    </script>
+</body>
+</html>

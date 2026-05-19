@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        map 
+        => key : value 형태의 데이터를 한개의 배열로 만들어서 다시 배열에 저장하는 방식
+    </h1>
+    <!-- 
+        const map = new Map();
+        const map = new Map([[key:value],[key:value],[key:value]]);
+        [[key:value],[key:value],[key:value]];
+        
+        map은 기본적으로 중첩 구조를 가지고 있음. 
+        index가 없음. key => 중복불가능
+
+        - key를 식별자로 하는 get(keyName), set(keyName) 메서드 제공
+        - key는 string이 원칙
+
+        - delete() / has() / forEach()
+        - keys() / values() / entries() / size / clear()
+    -->
+    <script>
+        const myMap = new Map();
+        myMap.set('html',78);
+        myMap.set('css',85);
+        myMap.set('js',96);
+        console.log(myMap);
+
+        console.log(myMap.get('html')); // get => value return
+
+        myMap.forEach((v,k,s)=>{
+            console.log(k +" : "+v);
+        });
+
+        myMap.delete('html');
+        console.log(myMap);
+        console.log(myMap.keys());
+        console.log(myMap.values());
+        console.log(myMap.entries());
+
+        myMap.keys().forEach(v => console.log(v));
+
+        myMap.entries().forEach((v,i)=>{
+            console.log(v, i);
+            v.forEach(v2 => console.log(v2));
+        });
+
+        console.log(myMap.size);
+
+        myMap.clear();
+        console.log(myMap);
+
+    </script>
+</body>
+</html>

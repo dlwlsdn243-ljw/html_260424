@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container{
+            border: 1px solid black;
+        }
+
+        #printResult{
+            height: 70px;
+            border-radius: 10px;
+            margin: 15px ;
+            text-align: end;
+            background-color: rgb(230, 230, 144);
+            border: none;
+        }
+
+        .container .area{
+            width: 300px;
+            padding: 10px 0 10px 10px;
+
+        }
+
+        .container .area button{
+            font-size: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            box-sizing: border-box;
+            margin: 5px;
+            background-color: pink;
+            border: none;
+        }
+
+        .container .area .c{
+            background-color: rgb(235, 59, 88);
+            width: 280px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="printResult">0</h1>
+        <div class="area">
+            <button type="button" value="7">7</button>
+            <button type="button" value="8">8</button>
+            <button type="button" value="9">9</button>
+            <button type="button" value="+">+</button>
+            
+            <button type="button" value="4">4</button>
+            <button type="button" value="5">5</button>
+            <button type="button" value="6">6</button>
+            <button type="button" value="-">-</button>
+            
+            <button type="button" value="1">1</button>
+            <button type="button" value="2">2</button>
+            <button type="button" value="3">3</button>
+            <button type="button" value="*">*</button>
+            
+            <button type="button" value=".">.</button>
+            <button type="button" value="0">0</button>
+            <button type="button" value="=">=</button>
+            <button type="button" value="/">/</button>
+            
+            <button type="button" value="c" class="c">c</button>
+        </div>
+    </div>
+    <script>
+        let printValue = ''
+
+        // 전체 화면에 이벤트를 달아주는 방법
+        document.addEventListener('click',(e)=>{
+            let btnValue = e.target.value;
+            console.log(btnValue);
+
+            if(btnValue == undefined) return;
+
+            if(!isNaN(btnValue)){
+                // 숫자인 캐이스
+                printValue += btnValue
+                document.getElementById('printResult').innerText=printValue
+
+            }else{
+                // 숫자가 아닌 케이스
+                switch(btnValue){
+                    case 'c':
+                        // 변수 초기화
+                        printValue=''
+                        document.getElementById('printResult').innerText=''
+                        break
+                    case '.': 
+                        printValue += btnValue
+                        document.getElementById('printResult').innerText=printValue
+                        break
+                    case '=':
+                        let operator = '';
+
+                        if(printValue.includes('+')){
+                            operator = '+';
+                        }else if(printValue.includes('-')){
+                            operator = '-';
+                        }else if(printValue.includes('*')){
+                            operator = '*';
+                        }else if(printValue.includes('/')){
+                            operator = '/';
+                        }
+
+                        let arr = printValue.split(operator);
+
+                        operation(arr[0], operator, arr[1]);
+                        break
+
+                    default:
+                        printValue += btnValue
+                        document.getElementById('printResult').innerText = printValue
+
+
+                }
+            }
+            
+        })  
+
+        function operation(f,o,l){
+            f = Number(f)
+            l = Number(l)
+            
+            let result = 0
+            switch(o){
+                case '+' : 
+                    result = f+l; 
+                    break;
+                case '-' : result = f-l; break;
+                case '*' : result = f*l; break;
+                case '/' : result = f/l; 
+                if (l==0){
+                    alert('0으로 나눌수 없습니다..');
+                    result = f/l;
+                }
+                break;
+            }
+            document.getElementById('printResult').innerText=result
+        }
+       
+    </script>
+</body>
+</html>

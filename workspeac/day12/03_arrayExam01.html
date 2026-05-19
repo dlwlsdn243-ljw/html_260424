@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="btn1"><img src="../image/가위.png" alt=""></button>
+    <button type="button" id="btn2"><img src="../image/바위.png" alt=""></button>
+    <button type="button" id="btn3"><img src="../image/보.png" alt=""></button>
+    <h3>
+        play : <span id="result1"></span> / com : <span id="result2"></span> => <span id="result3"></span>
+    </h3>
+    <h3>현재전적</h3>
+    <h3 id="h3-1"></h3>
+    <h3 id="h3-2"></h3>
+
+    <script>
+        // 가위바위보 게임
+        // com = random / player = random
+        // 0=가위 / 1=바위 / 2=보
+        // 승률 계산 (승 / (10-무))*100 소수 둘째자리까지 표현
+        // ol => com 가위 / player 보 => com win
+        // h3 => win:  / draw:  / lose:
+
+        document.getElementById('btn1').addEventListener('click',()=>{
+            let win = 0;
+            let draw = 0;
+            let lose = 0;
+            const play = ['가위','바위','보'];
+            let str1 = '';
+            let str2 = '';
+
+            while(true){
+                let user = document.getElementById('btn1');
+                let com = randomNumber();
+                let result = getWinner(user, com);
+                
+                str1 += `player: ${play[user]}`;
+                str2 += `player: ${play[com]}`;
+
+
+                if(result == 'win'){
+                    win++;
+                }else if(result == 'draw'){
+                    draw++;
+                }else{
+                    lose++;
+                }
+
+            }
+            document.getElementById('result1').innerHTML = str1
+            document.getElementById('result2').innerHTML = str2
+            
+
+
+
+        })
+
+        // 승(win) 무(draw) 패(lose) 리턴하는 함수
+        function getWinner(playerChoice, comChoice){
+            if(playerChoice == comChoice){
+                return 'draw';
+            }else{
+                if(
+                    (playerChoice == 0 && comChoice == 2) ||
+                    (playerChoice == 1 && comChoice == 0) ||
+                    (playerChoice == 2 && comChoice == 1)
+                ){
+                    return 'win'
+                }else {
+                    return 'lose';
+                }
+            }
+        }
+
+        // 랜덤 값을 리턴하는 함수
+        function randomNumber(){
+            return Math.floor(Math.random()*3);  //0 1 2
+        }
+    </script>
+</body>
+</html>

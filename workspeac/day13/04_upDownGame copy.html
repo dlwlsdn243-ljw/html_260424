@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1~99까지 숫자중 하나를 랜덤으로 선택하여 해당 숫자를 맞추는 게임
+    -->
+    <div>
+        <button id="random">랜덤 숫자 생성 버튼</button>
+        <button id="reset">다시시도</button>
+        <h1 id="printMsg"></h1>
+    </div>
+    <div>
+        <input type="text" name="" id="myNum">
+        <button id="compareNum">제출</button>
+        <h1 id="result"></h1>
+    </div>
+
+    <script>
+        const printMsg = document.getElementById('printMsg')
+        const result = document.getElementById('result')
+        let compareNumber = 0
+        
+        document.getElementById('compareNum').addEventListener('click', ()=>{
+            let myNum = document.getElementById(myNum).value;
+            
+        })
+
+        document.getElementById('random').addEventListener('click', ()=>{
+            compareNumber = Math.floor(Math.random()*99)+1
+            printMsg.innerText='컴퓨터가 랜덤수를 생성했습니다.(1~99)'
+            console.log(compareNumber)
+        });
+
+        document.getElementById('reset').addEventListener('click', ()=>{
+            // 새로고침
+            window.location.reload()
+        });
+
+        
+    </script>
+</body>
+</html>

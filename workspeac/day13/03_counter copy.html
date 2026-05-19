@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #text>span{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+    button 2개 준비
+    - 0 + 
+    + => 1씩증가
+    - => 1씩감소 (값이 0이면 더이상 감소x)
+    -->
+    <button id="incre">+</button>
+    <span id="number">0</span>
+    <button id="decre">-</button>
+    <h1 id = 'text'>
+        보이는 글자
+        <span>안보이는 글자</span>
+    </h1>
+
+    <script>
+       // innerText : 태그 안쪽 글자(보여지는 글자만 가져옴)
+       // textContent : display:none(안보여지는 글자도 가져옴)
+
+       let text = document.getElementById('text').innerText;
+       let text2 = document.getElementById('text').textContent;
+        console.log(text)
+        console.log(text2)
+
+        const number = document.getElementById('number')
+        const incre = document.getElementById('incre')
+        const decre = document.getElementById('decre')
+
+        incre.addEventListener('click',()=>{
+            //현시점의 text를 number로 가져오기
+            let currValue = Number(number.innerText)
+            number.innerText = currValue + 1
+        })
+
+        decre.addEventListener('click',()=>{
+            //현시점의 text를 number로 가져오기
+            let currValue = Number(number.innerText)
+            number.innerText = currValue - 1
+            if (currValue <= 0){
+                number.innerText = 0
+            }else{
+                number.innerText = currValue - 1
+            }
+        })
+    </script>
+    
+</body>
+</html>

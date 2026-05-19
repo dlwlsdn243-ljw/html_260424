@@ -16,5 +16,119 @@
         - 웹 분야에서는 password, 첨부파일규칙, 화원가입 규칙 등에서 정도만 사용
         - 다른 언어에서도 정규 표현식은 같은 방식으로 사용되기 때문에 알아두면 도움됨
     -->
+
+    <!-- 
+        /regExp/flag => /    / => 시작기호, 종료기호
+        regExp : 패턴 / flag : 옵션
+
+        - ('str').math(/regexp/) : str 에서 매칭되는 항목들을 배열로 리턴 없으면 null
+
+        - ('str').replace(/regexp/, 'changeStr') : str 문자열이 정규식에 맞는지 체크
+        true 가 되면 바꿀 문자로 변경 (최초 1개만) : 전체 변경은 replaceAll / regexp/g
+
+        - ('str').split(/regexp/) : 정규식에 매칭되는 항목을 기준으로 str을 나누어 배열로 리턴
+
+        - (/regexp).test('str') : str문자열이 정규식에 맞는지 체크 true / false
+    -->
+
+    <!-- 
+        정규표현식에 사용되는 플래그
+        i : 대소문자를 구분x
+        g : 전역검색 
+        m : 줄바꿈 포함
+
+        패턴 문자열
+        a-zA-Z : 영어 대소문자
+        ㄱ-ㅎ/가-힇 : 한글
+        0-9 : 숫자
+        . : 모든 문자열(숫자, 한글, 영어, 특수문자, 공백) => 줄바꿈 x
+
+        \d : 숫자  \D : 숫자 아닌 것
+        \s : 공백  \S : 공백 아닌 것
+        \w : 영숫자  \w : 영숫자 아닌 것
+
+        검색패턴
+        | or (jpg|gif|png) => 이 중에 하나만
+        [ ] : or의 묶음 / 해당 문자들 중 하나
+        /abc/ => 'abc'를 포함하는
+        /[abc]/ => 'a','b','c'를 포함하는
+        /[a-z+]/ => a~z까지 중 하나를 포함하는 (+ : 하나이상)
+        /[^abc]/ => 'a','b','c'제외
+
+        {min, max} : min~max까지 글자수 제한
+
+        ^ => 시작문자 / $ => 끝나는 문자
+        /^시작 끝$/
+
+        - 그림파일만 허용 (파일명.jpg, gif, png, bmp)
+        /\.(jpg|gif|png|bmp)$/i
+    -->
+        
+    <script>
+        let testStr = 'This is javascript Regular Expression'
+        console.log(testStr.match(/is/g))
+        if (testStr.match(/is/g)){
+            console.log('is 문장이 존재합니다..')
+        } else{
+            console.log('is 문장이 존재하지 않습니다.')
+
+        }
+        console.log(/is/g.test(testStr))
+
+        console.log('문제1')
+        const fileName = ['abc.jpg', 'main.java', 'main.GIF', 'test.gif', 'doc.pdf', 'code.js'];
+        // 이미지파일 : abc.jpg, main.GIF, test.gif
+        // 그외 파일 : main.java, doc.pdf, code.js
+        console.log(fileName[3].match(/\.(jpg|gif|png|bmp)$/i));
+
+        const imageFiles = [];
+        const otherFiles = [];
+
+        for (let i=0; i<fileName.length; i++){
+            if(fileName[i].match((/\.(jpg|gif|png|bmp)$/i))){
+                imageFiles.push(fileName[i])
+            }
+            else{
+                otherFiles.push(fileName[i])
+            }
+        }
+        console.log('이미지 파일 : ',imageFiles)
+        console.log('그외 파일 : ',otherFiles)
+
+        // 배열 => for of
+        console.log('for of')
+        for (let file of fileName){
+            if (file.match(/\.(jpg|gif|png|bmp)$/i)){
+                imageFiles.push(file)
+            }else{
+                otherFiles.push(file)
+            }
+        }
+        console.log('이미지 파일 : ', imageFiles)
+        console.log('그외 파일 : ', otherFiles)
+
+        // filter
+        const imageFile = fileName.filter( f=> f.match(/\.(jpg|jpeg|gif|png|bmp)$/i));
+        const otherFile = fileName.filter( f=> !f.match(/\.(jpg|jpeg|gif|png|bmp)$/i));
+
+        console.log("-- filter 사용--");
+        console.log('이미지 파일:', imageFile);
+        console.log('그 외 파일 :', otherFile);
+
+        // reduce => 누적 (텍스트 누적)
+        const result = fileName.reduce((acc, file)=>{
+            if(file.match(/\.(jpg|jpeg|gif|png|bmp)$/i)){
+                acc.image.push(file);
+            }else{
+                acc.other.push(file);
+            }
+            return acc;
+        }, {image:[], other:[]});
+
+        console.log(result);
+
+        
+    </script>
+
 </body>
 </html>

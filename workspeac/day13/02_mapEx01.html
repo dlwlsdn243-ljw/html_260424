@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>성적표</legend>
+        과목: <input type="text" id="subject"> <br>
+        점수: <input type="text" id="score"> <br>
+        <button id="add">추가</button>
+        <button id="printBtn">출력</button>
+        <ul id="ul"></ul>
+        <h3 id="h3"></h3>
+    </fieldset>
+    <script>
+        // 추가 버튼을 클릭하면 map에 점수를 추가
+        // 출력 버튼을 클릭하면 ul->li 점수들을 출력 h3 > 합계 / 평균 / pass
+        const myMap = new Map();
+        const ul = document.getElementById('ul');
+        const h3 = document.getElementById('h3');
+
+        document.getElementById('printBtn').addEventListener('click',()=>{
+            let sum = 0;
+            myMap.forEach((v) => sum += v);
+            let avg = sum / myMap.size;
+            let pass = avg >= 80 ? 'pass' : 'fail';
+
+            h3.innerText = `sum: ${sum} / avg: ${avg.toFixed(2)} / pass: ${pass}`;
+        });
+
+        document.getElementById('add').addEventListener('click',()=>{
+            const subject = document.getElementById('subject');
+            const score = document.getElementById('score');
+
+            let score1 = Number(score.value);
+
+            if(subject.value.trim() == '' || score.value.trim() == ''){
+                alert('값이 비었습니다.');
+                return;
+            }
+
+            if(isNaN(score1) || score1 < 0 || score1 > 100){
+                alert('올바른 점수를 입력해주세요.');
+                return;
+            }
+
+            myMap.set(subject.value, score1);
+            subject.value = '';
+            score.value = '';
+
+            let str = '';
+            myMap.forEach((v,k) => str+= `<li>${k} : ${v}</li>`);
+            ul.innerHTML = str;
+        })
+    </script>
+</body>
+</html>

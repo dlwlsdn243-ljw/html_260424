@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>set : 자바스크립트에서 데이터 타입의 확장개념
+                집합 데이터를 다룰 수 있는 객체
+        </h1>
+
+        <!-- 
+            set : 중복불가능 => index없음
+            set() : 파라미터로 주로 배열을 사용(중복제거용)
+
+            - new Set() / new Set(array) : set 객체생성, 초기화
+            - set.add(value) : 데이터 추가
+            - set.delete(value) : 데이터 삭제
+            - set.has(value) : 값의 존재 여부를 체크 true / false
+            - set.forEach(callback function) : set 순환
+            - set.keys() / set.entries() / set.values() : setIteration 형식
+            - set.size
+            - set.clear() : set 비우기
+        -->
+
+        <script>
+            const set = new Set(['html', 'css', 'js', 'css', 'html'])
+            console.log(set)
+
+            set.add('react')
+            console.log(set)
+            
+            set.delete('html')
+            console.log(set)
+
+            console.log(set.has('react'))
+            console.log(set.size)
+
+            // value, index, self
+            set.forEach(function(v,i,s){
+                // index가 없어서 value가 2번 출력
+                console.log(v,i,s)
+            })
+
+            //key() / values() / entries()
+            console.log(set.keys())
+            console.log(set.values())
+            console.log(set.entries())
+
+            set.keys().forEach(v => console.log(v))
+
+            set.clear()
+            console.log(set)
+
+        </script>
+    </body>
+</html>

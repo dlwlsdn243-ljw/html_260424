@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1~99까지 숫자중 하나를 랜덤으로 선택하여 해당 숫자를 맞추는 게임
+    -->
+    <div>
+        <button id="random">랜덤 숫자 생성 버튼</button>
+        <button id="reset">다시시도</button>
+        <h1 id="printMsg"></h1>
+    </div>
+    <div>
+        <input type="text" name="" id="myNum">
+        <button id="compareNum">제출</button>
+        <h1 id="result"></h1>
+    </div>
+
+    <script>
+        const printMsg = document.getElementById('printMsg')
+        let myNum = document.getElementById('myNum').value
+        const result = document.getElementById('result')
+
+        let random = 0;
+        document.getElementById('random').addEventListener('click', ()=>{
+            random = Math.floor(Math.random()*99)+1
+            printMsg.innerText = `랜덤 숫자 생성`
+            document.getElementById('myNum').value = ''
+            result.innerText = ''
+            console.log(random)
+        })
+
+        document.getElementById('reset').addEventListener('click', ()=>{
+            document.getElementById('myNum').value = ''
+            printMsg.innerText = ''
+            result.innerText = ''
+        })
+
+        document.getElementById('compareNum').addEventListener('click', ()=>{
+            let myNum = Number(document.getElementById('myNum').value)
+
+            if(myNum == ''){
+                alert('값이 비었습니다.');
+                return;
+            }
+
+            if(isNaN(myNum) || myNum < 0 || myNum >= 100){
+                alert('올바른 숫자를 입력해주세요.');
+                return;
+            }
+
+            if(myNum == random){
+                result.innerText = `${random} 정답입니다.`
+            } else if (myNum > random) {
+                result.innerText = 'down'
+            }else if (myNum < random) {
+                result.innerText = 'up'
+            }
+        })
+
+
+
+
+    </script>
+</body>
+</html>
