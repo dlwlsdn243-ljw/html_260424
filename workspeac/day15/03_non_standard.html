@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        non_standard attribute : 비표준 속성
+    </h1>
+    <!-- 
+        속성: attribute => element에 달리는 여러가지 속성 (빨간색)
+        객체명.속성명
+
+        - 모든 element 마다 본인의 속성을 가지고 있음. == 표준속성
+        - 각자의 element 속성은 속성 자체가 특정 기능을 가지고 있음. 
+        - 개발자 입장에서 필요한 속성을 직접 제공하는 방법 : 비표준 속성
+
+        - 너무 과도하게 사용하면 개발 효율과 가독성 저하. 적당히 사용
+    -->
+    <input type="text" name="" id="" value="" placeholder="" readonly required disabled>
+
+    <ul>
+        <li class="list" data-title="제목">
+            비표준 속성 사용방법
+        </li>
+        <li class="list" data-age="20" data-no="2">
+            data-변수명 = "값"
+            dataset property를 사용하여 읽어들임
+        </li>
+        <li class="list" data-objectNum="10">
+            변수명에 대문자는 허용하지 않음.  data-objectNum="1"  => objectnum
+            대문자로 쓰더라도 소문자로만 인식
+            let objectNum = 객체.dataset.objectNum;  // 인지불가능
+            let objectNum = 객체.dataset.objectnum;  // 인지가능
+        </li>
+    </ul>
+
+    <script>
+        let li_list = document.querySelectorAll(".list");
+        console.log(li_list);
+
+        console.log(li_list[0].dataset.title);
+        let age = li_list[1].dataset.age;
+        let no = li_list[1].dataset.no;
+        console.log(age, no);
+
+        console.log(li_list[2].dataset.objectNum); // undefined
+        console.log(li_list[2].dataset.objectnum); // 10
+    </script>
+
+</body>
+</html>

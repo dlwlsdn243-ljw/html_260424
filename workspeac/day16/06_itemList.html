@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../day06/reset.css">
+    <style>
+        body{
+            
+        }
+        h1{
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            font-size: 35px;
+            font-weight: 700;
+        }
+
+        form{
+            margin: 0 50px;
+            display: flex;
+            justify-content: center;
+            background-color: aquamarine;
+        }
+        input{
+            margin: 25px 5px 25px 0;
+            width: 250px;
+            height: 25px;
+        }
+        button{
+            margin: 25px 0 25px 0;
+        }
+
+        #itemList{
+            margin: 0 50px;
+        }
+
+        ul>li{
+            padding: 0 0 0 25px;
+            display: flex;
+            align-items: center;
+            height: 50px;
+   
+        }
+
+        #itemList li:nth-child(odd){
+            background-color: pink;
+        }
+
+        #itemList li:nth-child(even){
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>여행 준비물 점검 목록</h1>
+    <form action="">
+        <input type="text" name="" id="item">
+        <button type="button" id="btn">추가</button>
+    </form>
+    <div>
+        <ul id="itemList"></ul>
+    </div>
+
+    <script>
+        const item = document.getElementById('item')
+        const itemList = document.getElementById('itemList')
+        
+        document.getElementById('btn').addEventListener('click', () =>{
+
+            let itemStr = `<li>${item.value} </li>`;
+
+            itemList.innerHTML+=itemStr
+         
+            item.value = ''
+        })
+    </script>
+</body>
+</html>

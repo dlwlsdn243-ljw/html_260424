@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>구구단 게임</h1>
+    <fieldset>
+        <button type="button" id="startBtn">문제 출제</button>
+        <ol id="q"></ol>
+
+        <button id="compareBtn">정답 확인</button>
+        <h3 id="print"></h3>
+    </fieldset>
+
+    <script>
+        // 동적으로 생성된 객체 인식.
+        // 1. 정답을 담을 배열 or 객체
+        const ansObj = {};  // []
+        const quizArea = document.getElementById('q');
+
+        // 버튼을 한번만 누를수 있게
+        // 1. 버튼 객체를 disabled로 변경
+        // 객체명.disabled = true; 
+
+        // {once:true} : 이벤트가 트리거 될 때 리스너를 자동으로 제거
+        document.getElementById('compareBtn').addEventListener('click',()=>{
+            let correct = 0;
+            let count = 0;
+            const userInput = document.querySelectorAll('.user');
+            console.log(userInput);
+
+            while(count < 10){
+                console.log(userInput[count]); // 해당 객체 1개만을 인식
+
+                if(Number(userInput[count].value) == ansObj[`ans${count}`]){
+                    correct++;
+                    userInput[count].value += `\t ⭕`; // 내정답 + 정보기재 
+                    // 스타일을 객체의 명령으로 처리
+                    // 객체명.style. - 를 빼고 카멜케이스로 변경해서 사용
+                    userInput[count].style.backgroundColor = 'green';
+                }else{
+                    userInput[count].value += `\t ❌`; // 내정답 + 정보기재 
+
+                }
+                count++;
+                document.getElementById('print').innerText = `
+                정답개수: ${correct}, 정답률: ${(correct/count)*100}%
+                `;
+                document.getElementById('compareBtn').disabled = true;
+            }
+        }, {once : true})
+
+        document.getElementById('startBtn').addEventListener('click',()=>{
+            document.getElementById('compareBtn').disabled = false;
+            let count = 0;
+            let str = '';
+            do{
+                let dan = makeRandom(2,9);
+                let incre = makeRandom(1,9);
+                let answer = dan * incre;
+                // 정답을 객체로 저장
+                ansObj[`ans${count}`] = answer;  // ans0 : 9
+
+                str += `<li>${dan} * ${incre} = <input type="text" class="user" id="userAns${count}"></li>`;
+                count++;
+
+            }while(count < 10);
+            quizArea.innerHTML = str;
+            console.log(ansObj);
+        });
+
+        function makeRandom(min, max){
+            // 단 2~9  / incre 1~9
+            return Math.floor(Math.random()*(max-min+1))+min
+        }
+
+    </script>
+</body>
+</html>

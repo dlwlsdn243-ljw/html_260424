@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Call, Apply, Bind => 함수를 호출하는 방법
+    </h1>
+    <!-- 
+        함수를 호출하는 방법
+        1. 함수명() : 함수명 뒤에 ()를 붙여서 호출하는 방법
+        2. call, apply 하는 방법
+
+        함수명.call(this, params ...);
+        this : 호출하려는 함수 주체 (대상) => 자신의 함수면 null
+
+        함수명.apply(this, [params...]);
+        - call을 써서 this를 호출한다면 다른 객체의 파라미터나 메서드를 자신의 것마냥 사용할 수 있음
+        - this는 전역객체의 window로 정해져 있다
+        - 몇가지 방법으로 window를 다른 것으로 바꿀 수 있음
+        
+        bind는 함수가 가르키는 this만 바꾸고 호출은 안함
+        this를 정의하고 나서 그 함수를 복사해 새로운 함수를 만들어서 리턴
+
+        - 실부에서 사용빈도 적음
+    -->
+
+    <script>
+        const example = function(a,b,c){
+            return a+b+c;
+        }
+        let a = example(1,2,3)
+        console.log(a)
+        
+        let b = example.call(null, 1,2,3)
+        console.log(b)
+
+        let c = example.apply(null, [1,2,3])
+        console.log(c)
+
+        const obj = {
+            string : 'zero',
+            yell : function(){
+                console.log(this.string)
+            }
+        }
+
+        const obj2 = {
+            string : 'what'
+        }
+
+        obj.yell(); // zero
+        obj.yell.call(obj2); // this의 값을 yell 값의 this 대상으로 호출
+
+        const kimObj = {
+            name : 'kim',
+            first : 10,
+            second : 30
+        }
+
+        function sum(num){
+            return num + this.first + this.second
+        }
+
+        console.log(sum.call(kimObj, 1000)) // 1040
+
+        // 유사배열 (array-like object)
+        /*
+            배열처럼 인덱스와 length 프로퍼티를 가지고 있지만 배열이 아닌 형태
+            HTMLVollection, NodeList, arguments, answkduf => 유사배열에 속함
+            배열 메서드를 사용할 수 없으므로, 배열 메서드를 사용하기 위해서는 Array.from() 유사배열로 변환하면 가능.
+
+            유사배열 구별방법 : 
+                객체가 length프로퍼티를 가지고 있고, 키가 숫자0,1,2이름으로 가지고 있는 경우는 유사배열일 가능성이 높다.
+        */
+
+        function testFunc(p1,p2,p3){
+            console.log(arguments)
+            console.log(typeof arguments)
+            //console.log(arguments.join('.')) // 유사배열이라서 사용 불가능
+            // call을 사용하면 가능
+            console.log(Array.prototype.join.call(arguments))
+        }
+        testFunc(1,2,3)
+
+        console.log('----------------------')
+
+        // bind
+        const bindObj = {
+            string : 'zero',
+            yell : function(){
+                console.log(this.string)
+            }
+        }
+
+        const bindObj2 = {
+            string : 'what'
+        }
+
+        let d = bindObj.yell.bind(bindObj2)
+        console.log(d)
+        d() // 호출해야 실행
+
+        bindObj.yell.bind(bindObj2)();
+
+        const num = [3,8,7,1]
+        console.log(Math.max.apply(null, num))
+
+        console.log(Math.max(...num))
+    </script>
+</body>
+</html>

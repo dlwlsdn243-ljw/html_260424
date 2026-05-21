@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        header{
+            margin: 50px auto;
+        }
+
+        header>h1{
+            font-weight: 700;
+        }
+        header>h1{
+            font-size: 24px;
+        }
+        section{
+            display: flex;
+            justify-content: center;
+        }
+
+        section>div{
+            margin: 0 20px;
+            text-align: left;
+            border: 1px solid gainsboro;
+            padding: 10px;
+            border-radius: 20px;
+            box-shadow: 5px 5px 5px gray;
+        }
+
+        section>div>div:first-child{
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json
+    -->
+        <header id="header">
+            
+        </header>
+
+        <section id="section">
+
+        </section>
+
+        <script>
+            const header = document.getElementById('header')
+            const section = document.getElementById('section')
+
+            // html 문서가 로딩되면 호출
+            document.addEventListener('DOMContentLoaded', ()=>{
+                fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+                .then(response => response.json())
+                .then(json => printData(json))  // 성공시
+                .catch(error => console.log(error)); // 실패시                
+            })
+
+            // 출력함수
+            function printData(obj){
+                
+                console.log(obj); // 들어오는지 콘솔창에서 확인
+                let str = '';
+                str += `<h1> ${obj.squadName}</h1>`;
+                str += `<h3> HomeTown : ${obj.homeTown} / Formed : ${obj.formed}</h3>`;
+
+                header.innerHTML = str;
+
+                // section => div => div*4 => div>ul>li
+                let i = 0;
+                for (let member of obj.members){
+                    i++
+                    let memberStr = `<div>`;
+                    memberStr += `<div>${member.name}</div>`;
+                    memberStr += `<div>SecretIdentity : ${member.secretIdentity}</div>`;
+                    memberStr += `<div>Age : ${member.age}</div>`;
+                    memberStr += `<div>SuperPowers : </div>`;
+                    memberStr += `<ul id = "power${i}"></ul>`;
+                    memberStr += `</div>`;
+
+                    section.innerHTML += memberStr;
+
+                    member.powers.forEach(v => {
+                        document.getElementById(`power${i}`).innerHTML += 
+                        `<li>${v}</li>`
+                    })
+                }
+
+            }  
+
+
+        </script>
+</body>
+</html>

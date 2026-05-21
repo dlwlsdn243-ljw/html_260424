@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">데이터 가져오기</button>
+    <ul id="ul"></ul>
+
+    <script>
+
+        // todos 1~5까지의 자료를 가져오기
+        document.getElementById('btn').addEventListener('click',()=>{
+            for (let i=1; i<=5; i++){
+                fetch('https://jsonplaceholder.typicode.com/todos/'+i)
+                .then(response => response.json())
+                .then(json => printData(json))  // 성공시
+                .catch(error => console.log(error)); // 실패시
+            }
+        });
+
+        function printData(obj){
+            const ul = document.getElementById('ul');
+               let str = '';
+            for(const key in obj){
+                  str += `<li>${key} : ${obj[key]}</li>`;
+            }
+            str += `<hr>`
+            ul.innerHTML += str;
+        }     
+    </script>
+</body>
+</html>

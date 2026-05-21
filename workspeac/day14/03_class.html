@@ -25,12 +25,56 @@
     <!-- 
         클래스 생성 기본 문법
         class 클래스명 {
-            생성자
+            생성자 = 1개만 가능
+            construtor(param){
+                맴버변수 정의
+            }
 
             메서드 정의
+            methodName(param){
+                ...
+            }
 
             getter / setter
+            get name(){
+                return this.name    
+            }
+            set name(value){
+                this.name = value
+            }
         }
+
+        new 클래스명(); // 생성자로 객체 생성
     -->
+
+    <script>
+        class Car{
+            // 생성자는 1개만 가능
+            constructor(name, year){
+                this.name = name
+                this.year = year
+                this.model = ''
+            }
+        }
+
+        const myCar = new Car('sonata', 2024);
+        myCar.model = 'XG;'
+        console.log(myCar)
+
+        const myCar2 = new Car();
+        myCar2.name = '그랜저'
+        myCar2.year = 2026
+        myCar2.model = 'new'
+        console.log(myCar2)
+
+        const myCar3 = new Car();
+        myCar3.name = '아반떼'
+        myCar3.year = 2026
+        myCar3.model = 'XD'
+        myCar3.color = 'black'
+        console.log(myCar3)
+
+
+    </script>
 </body>
 </html>

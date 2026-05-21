@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .userAnswer{
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <h1>구구단 게임</h1>
+    <fieldset>
+        <button type="button" id="startBtn">문제 출제</button>
+        <ol id="q"></ol>
+
+        <button id="compareBtn">정답 확인</button>
+        <h3 id="print"></h3>
+    </fieldset>
+
+    <script>
+        const answer = []
+
+        document.getElementById('startBtn').addEventListener('click', ()=>{
+            q.innerHTML = ''
+            answer.length = 0
+            for (let i=1; i<=10; i++){
+                
+                let num1 = Math.floor(Math.random()*9)+1
+                let num2 = Math.floor(Math.random()*9)+1
+
+                answer.push(num1*num2) 
+
+                document.getElementById('q').innerHTML += `
+                <li>
+                    ${num1} x ${num2}
+                    <input class="userAnswer">
+                </li>`
+                document.getElementById('startBtn').disabled = false 
+            }  
+        })
+
+        document.getElementById('compareBtn').addEventListener('click', () =>{
+            const userAnswer = document.querySelectorAll('.userAnswer')
+            let count = 0;
+            for (let i=0; i<userAnswer.length; i++){
+                if (answer[i] == Number(userAnswer[i].value)){
+                count++
+                }
+            }
+            document.getElementById('print').innerHTML=`
+            정답개수 : ${count} / 정답률 : ${(count/10)*100}%
+            `
+            document.getElementById('compareBtn').disabled = true
+        });
+    </script>
+</body>
+</html>

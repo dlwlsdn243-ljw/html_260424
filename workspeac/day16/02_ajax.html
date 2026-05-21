@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Ajax : 비동기 통신 방식
+    </h1>
+    <!-- 
+        ajax(Asynchronous javaScript and XML)
+        - 자바 스크립트에 내장되어 있는 XMLHttpRequest(예전) / Fetch API(현재)
+          객체를 활용하여 서버에 있는 데이터를 요청하고, 응답받은 데이터를 
+          자바스크립트로 처리 => 페이지 갱신
+
+          화면 <-> 서버
+
+          - 데이터 통신 방식 : 동기, 비동기
+
+          동기식(synchronous) : 직렬식 (순차처리)
+          - 동시에 일어나는 요청을 하면 바로 응답을 받는 방식
+          - 순서적임
+          - 요청을 하면 html 페이지로 리턴
+          - <form action=""> </form>
+
+          비동기식(Asynchronous) : 병렬식(독립처리)
+          - 특정 작업이 완료될 때까지 기다리지 않고, 다음 작업을 바로 실행하는 방식
+          - 각자 독립적임.
+          - 요청에 대한 응답이 객체로 리턴
+          - 장점 : 자원 활용이 효율적
+          - 단점 : 작업의 복잡성이 증가할 수 있음.
+
+          동기식 : 직관적, 설계가 간단하다.
+          결과가 (html)이 나오기 전까지 대기해야 하는 단점이 있음.
+
+          비동기식 : 설계가 복잡함.
+          결과가 주어지는데 시간이 걸려도, 다른 작업은 돌아가기 때문에 효율적임.
+
+          비동기식 : ajax, jquery $.ajax()
+
+          async function(){} => 비동기 통신이 가능한 함수
+          그 함수의 리턴 객체는 promise 객체로 리턴됨.
+
+          await : 순차 처리가 진행되어야 할 때 사용
+          순차 코드 실행시 지연로딩, 지연 실행 상황이 발생하면 코드를
+          순차 적으로 진행할 수 있게 보증하는 키워드
+
+          http://jsonplaceholder.typicode.com/
+
+          contentType : 클라이언트와 서버간의 데이터 형식을 지정하는 헤더 정보
+          - 응답 데이터가 어떤 데이터인지 알려주는 역할
+          - application/json
+          - text/plain
+          - multipart/form-data
+          - text/html
+          - application/x-www-form-urlencoded
+    -->
+    <button id="btn">데이터 불러오기</button>
+    <ul id="ul"></ul>
+
+    <script>
+
+        document.getElementById('btn').addEventListener('click', ()=>{
+            asyncFunc().then(re => printData(re));
+
+        });
+        
+        async function asyncFunc(){
+            try{
+                
+                // fetch => response(응답객체)  /  request(요청객체)
+                const resp = await fetch("http://jsonplaceholder.typicode.com/todos/1");
+                //console.log(resp.json());
+                const result = await resp.json(); // Promise 객체로 리턴
+                return result;
+                
+            }catch(error){
+                console.log(error);
+            }
+        }
+        
+        function printData(obj){
+            const ul = document.getElementById('ul');
+               let str = '';
+            for(const key in obj){
+                  str += `<li>${key} : ${obj[key]}</li>`;
+            }
+            ul.innerHTML = str;
+        }
+    </script>
+</body>
+</html>

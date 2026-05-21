@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Car class</h1>
+    <!-- 
+        // private 필드 선언 ES2022
+    -->
+    <script>
+        class Car{
+            // # private 필드 기호
+            #power = false; // 시동상태
+            #speed = 0; // 현재 속도
+            
+            constructor(name, year){
+                this.name = name;
+                this.year = year;
+            }
+
+            // getter /setter
+            get power(){
+                return this.#power;
+            }
+
+            get speed(){
+                return this.#speed;
+            }
+
+            set speed(value){
+                this.#speed = value;
+            }
+
+
+            // 현재 상태
+            status(){
+                console.log(`차량명:${this.name} (${this.year}) / power:${this.#power ? '켜짐' : '꺼짐'}`);
+            }
+
+            // 시동 켜기
+            start(){
+                if(this.#power){
+                    console.log('시동이 켜진 상태입니다.');
+                }else{
+                    this.#power = true;
+                    console.log('시동이 켜졌습니다.');
+                }
+            }
+
+            // 시동 끄기
+            stop(){
+                if(!this.#power){
+                    console.log('시동이 꺼진 상태입니다.');
+                }else if(this.#speed > 0){
+                    console.log('속도를 멈추고 시동을 꺼주세요.');
+                }else{
+                    this.#power = false;
+                    console.log('시동이 꺼졌습니다.');
+                }
+            }
+
+            // speedUP
+            speedUp(){
+                if(!this.#power){
+                    console.log('시동을 켜주세요.');
+                    return;
+                }
+                this.#speed += 10;
+                console.log('현재속도:', this.#speed);
+            }
+
+            // speedDown
+            speedDown(){
+                if(!this.#power){
+                    console.log('시동을 켜주세요.');
+                    return;
+                }
+                this.#speed -= 10;
+                console.log('현재속도:', this.#speed);
+            }
+
+        }
+
+        const myCar = new Car('sonata', 2024);
+        myCar.status();
+        myCar.start();
+        myCar.speedUp();
+        myCar.speedUp();
+        myCar.speedUp();
+        myCar.speedUp();
+        myCar.speedUp();
+        myCar.speedUp();
+        myCar.speedUp();
+        myCar.speedUp();
+        myCar.speedUp();
+        myCar.speedDown();
+        myCar.speedDown();
+        myCar.speedDown();
+        myCar.speedDown();
+        myCar.speedDown();
+        myCar.stop();
+
+        console.log(myCar.name);
+        console.log(myCar.speed); // getter 호출
+
+        // setter를 이용하여 speed 100 
+        // method가 아니기 때문에 ()가 없음. 
+        // myCar.speed(100);
+        console.log(myCar);
+        myCar.speed = 100; // setter에 값을 추가
+        console.log(myCar.speed);
+        console.log(myCar);
+
+        // private 필드의 getter/setter 가 없으면 호출이 불가능 undefined
+        // setter가 없으면 => myCar.speed = 100; 일반 멤버변수의 speed를 추가
+
+    </script>
+</body>
+</html>
