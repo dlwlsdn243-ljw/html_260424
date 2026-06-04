@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        DOM : Document Object Model (HTML 안에 입력된 객체)
+    </h1>
+    <!-- 
+        html 하위에 있는 모든 태그들 : element
+        element 가지고 있는 속성 : attribute = property(멤버변수)
+
+        element를 가지고 올때 : getElementBy** / Id, ClassName, TagName
+        getElementById : 단일 엘리먼트를 리턴
+        ClassName / TagName : 복수 엘리먼트 리턴
+        HTMLCollection 유사배열로 리턴 index를 사용하여 선택
+
+        querySelector() / querySelectorAll()
+        element들을 querySelector 형태로 인지 (class = .  id = #  tagName = name)
+        NodeList 객체로 리턴 index 사용하여 선택
+
+        - getElementBy** (접근방식편리, 속도가 더 빠름)  
+        - querySelector : 다양한 접근이 가능 forEach 사용가능
+
+        element 속성(attribute)
+        - 일반 태그가 가지고 있는 속성
+          tag.id / tag.value / tag.classList
+        - style 속성
+          tag.style.속성이름
+          카멜케이스로 변경해서 사용가능
+          tag.style.color / tag.style.fontSize
+
+          classList : element 속성 중 복수로 값을 가지는 속성
+          - 객체에서 제공하는 별도의 메서드를 사용할 수 있음.
+          add() : 클래스 추가
+          remove() : 클래스 삭제
+          contains() : 해당 클래스를 포함하는지 확인
+          toggle() : 토글 (해당 클래스가 있으면 삭제, 없으면 추가)
+
+          자바스트립트로 스타일을 지정할 때
+          1. 양이 적으면 tag.style.**
+          2. class로 미리 스타일을 전부 지정하고, 추가, 삭제, 토글로 클래스를 조정
+    -->
+
+    <style>
+        .abc{
+            background-color: brown;
+        }
+
+    </style>
+    <h1 id="h1" class="h1 a text b">색상변경</h1>
+    <input type="color" id="colorValue">
+    <button id="changeBtn">change</button>
+
+    <script>
+        const h1 = document.getElementById('h1');
+
+        //h1.classList.add('abc');
+        //h1.classList.remove('h1');
+
+        console.log(h1);
+        console.log(h1.classList);
+
+        document.getElementById('changeBtn').onclick= ()=>{
+            //let color = document.getElementById('colorValue').value;
+            //h1.style.color = color;
+            h1.classList.toggle('abc');
+        };
+        
+        document.getElementById('colorValue').addEventListener('input',()=>{
+            let color = document.getElementById('colorValue').value;
+            h1.style.color = color;
+        });
+
+
+    </script>    
+
+</body>
+</html>

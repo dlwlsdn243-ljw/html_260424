@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: beige;
+        }
+        .container{
+            width: 300px;
+            background-color: rgb(4, 74, 4);
+            /* 화면의 정중앙에 위치*/
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            text-align: center;
+            border-radius: 10px;
+            padding: 20px 30px;
+        }
+        .container input{
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+        }
+        .container input[type=submit]{
+            font-weight: 700;
+            font-size: 15px;
+        }
+        .container>.link{
+            margin-top: 30px;
+        }
+        .container>.link>a{
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        .container>.link>a:hover{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <input type="text" class="text-field" name="id" placeholder="아이디">
+            <input type="password" class="text-field" name="pw" placeholder="비밀번호">
+            <input type="submit" class="btn" value="로그인" disabled>
+        </form>
+        <div class="link">
+            <a href="">비밀번호를 잊어버리셨나요?</a>
+        </div>
+    </div>
+    <script>
+        // event input
+        // id : 8자이상
+        // pw : 영어, 숫자, 특수문자 1개씩을 포함한 8자 이상 => regExp (정규표현식 사용)
+        // 두 조건이 맞을 때만 버튼 disabled 해지
+        // 객체.disabled = true  => 비활성화 상태
+        // 객체.disabled = false  => 활성화 상태
+
+        const inputs = document.querySelectorAll(".text-field");
+        const btn = document.querySelector(".btn");
+
+        // 영어, 숫자, 특수문자 1개씩을 포함한 8자 이상
+        const regExp = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+
+        // id, pw
+        function validateForm(){
+            const idVaild = inputs[0].value.length >= 8;
+            const pwVaild = regExp.test(inputs[1].value);
+            console.log(idVaild, pwVaild);
+            setButtonState(idVaild && pwVaild);
+        }
+
+        function setButtonState(isEnabled){
+            // 파라미터의 값은 true / false
+            // disabled = true (비활성화 상태)
+            // disabled = false (활성화 상태)
+            btn.disabled = !isEnabled;
+            btn.style.backgroundColor = isEnabled ? 'rgb(75, 28, 119)' : 'rgb(198, 185, 210)';
+        }
+
+        // 이벤트 등록
+        inputs.forEach(input => input.addEventListener("input", validateForm));
+
+
+    </script>
+</body>
+</html>

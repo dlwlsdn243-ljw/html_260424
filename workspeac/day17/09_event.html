@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        event 객체 
+    </h1>
+    <!-- 
+        마우스 이벤트 : click, input, change, mouseover, scroll
+
+        키보드 이벤트 : keyDown, keyPress, keyUp
+
+        기타 이벤트 : submit, reset
+
+        addEventListener('eventName', callback function)
+        : 메서드를 통해 구형하는 것이 권장
+        하나의 객체에 이벤트 중복 부여 가능
+    -->
+
+    <div>
+        <img src="../image/HOME.png" id="pic" alt="">
+    </div>
+
+    <script>
+        // 이미지에 마우스를 올리면(mouseover) 그림을 변경
+        // 마우스가 이미지를 벗어나면(mouseout) 기존 그림으로 다시 변경
+        
+        const pic = document.getElementById('pic');
+        pic.addEventListener('mouseover', ()=>{
+            pic.src = "../image/서울사진.jpeg"
+        })
+        pic.addEventListener('mouseout', ()=>{
+            pic.src = "../image/HOME.png"
+        })
+
+    </script>
+</body>
+</html>

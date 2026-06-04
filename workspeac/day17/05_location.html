@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>location : 브라우저의 주소표시줄에 입력에 관련된 객체</h1>
+    <!-- 
+        window.location / windew 생략가능
+
+        - location.href = 'url'   : url로 이동 => history 객체에 저장
+        - location.replace('url')  : url로 이동 => history 객체에 저장 안함
+        - location.assign('url')  : url로 이동 => history 객체에 저장
+        - location.reload()  : 현재 페이지에서 새로고침
+    -->
+
+    <!-- 
+        history 객체 : 브라우저가 저장하고 있는 방문페이지의 기록을 관리하는 객체
+        이전 / 다음
+        history.back() : <- 이전 페이지로 이동
+        history.forword() : <- 다음 페이지로 이동
+        history.go(n) : <- n번재 페이지로 이동 go(-2) : 이전 2단계
+
+        - 브라우저 별로 각자의 저장공간을 기반으로 기록
+        - 브라우저 별로 보안 이슈로 접근금지를 하는 브라우저들이 있음
+        - 접근방어가 되어있는 브라우저에서는 동작을 안함
+
+    -->
+
+    <button id="movehref">href 사용</button>
+    <button id="movereplace">replace 사용</button>
+    <button id="moveassign">assign 사용</button>
+    <button id="movereload">reload 사용</button>
+
+    <script>
+        document.getElementById('movehref').onclick = ()=>{
+            location.href = 'http://www.naver.com'
+        }
+
+        document.getElementById('movereplace').onclick = ()=>{
+            location.replace('http://www.google.com')
+        }
+        document.getElementById('moveassign').onclick = ()=>{
+            location.assign('http://www.google.com')
+        }
+        document.getElementById('movereload').onclick = ()=>{
+            location.reload()
+        }
+    </script>
+</body>
+</html>

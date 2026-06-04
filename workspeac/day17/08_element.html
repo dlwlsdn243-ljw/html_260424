@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>element 생성방법</h1>
+    <!-- 
+        let str += ''; => `<li>${value}</li>` => innerHTML로 추가
+
+        createElement : element 생성
+        appendChild() : 대상 엘리먼트의 자식으로 추가
+        remove() : 엘리먼트 제거
+    -->
+
+    <button id="btn1">li 추가</button>
+    <button id="btn2">li 추가(str 방식)</button>
+    <button id="btn3">li 하나씩 추가</button>
+    <button id="btn4">li 하나씩 추가(str 방식)</button>
+    <br>
+    <ul id="ul"></ul>
+    <ol id="ol"></ol>
+
+    <script>
+        const datas = ['HTML', 'CSS', 'JS', 'SQL', 'JAVA']
+        const ul = document.getElementById('ul')
+        const ol = document.getElementById('ol')
+
+        // str방식
+        document.getElementById('btn4').addEventListener('click', ()=>{
+            let str = datas.shift();
+            if(str != undefined){
+                ol.innerHTML += `<li>${str}</li>`
+            }
+        })
+
+        // 한번 클릭에 하나씩 추가 str방식으로, createElement 방식으로 각각 구현
+        document.getElementById('btn3').addEventListener('click', ()=>{
+            // createElement 방식
+            // datas.shift() 핲에서 하나씩 제거 => 값 리턴
+            let str = datas.shift()
+            if(str != undefined){ 
+                let li = document.createElement('li')
+                li.textContent = str;
+                ol.appendChild(li)
+
+            }
+
+        })
+
+        // 기존방식
+        document.getElementById('btn2').addEventListener('click', ()=>{
+            let str = ''
+            datas.forEach(v => str+= `<li>${v}</li>`);
+            ul.innerHTML = str
+        })
+
+        // createElement => appendChild 이용
+        document.getElementById('btn1').addEventListener('click', ()=>{
+            ul.innerHTML = '' // 원래 있던 값 비우기
+            datas.forEach(v => {
+                let li = document.createElement('li') // `<li></li>
+                // innerText / textContent
+                li.textContent = v; // <li>v</li>
+                ul.appendChild(li)
+            })
+        })
+
+    </script>
+</body>
+</html>

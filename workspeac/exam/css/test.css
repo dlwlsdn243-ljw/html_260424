@@ -1,0 +1,144 @@
+*{
+    box-sizing: border-box
+}
+body{
+    margin: 0;
+}
+
+.header{
+    height: 50px;
+    background-color: rgb(65, 64, 64);
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    padding-left: 40px;
+    line-height: 50px;
+}
+
+.main-img{
+    background-image: url(../image/사진1.jpeg);
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+}
+
+.subject{
+    padding: 0px 30px;
+    height: 400px;
+    background-color: azure;
+}
+
+.subject p:nth-of-type(1){
+    font-size: 16px;
+    color: #4A4A4A;
+    margin-bottom: 10px
+}
+
+.subject p:nth-of-type(2){
+    font-size: 20px;
+    color: #1b1b1b;
+    margin-bottom: 30px
+}
+
+.subject p:nth-of-type(3){
+    font-size: 16px;
+    color: #7a7a7a;
+}
+
+.content{
+    background-image: url(../image/사진2.jpeg);
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+}
+
+.sub{
+    height: 300px;
+    background-image: url(../image/사진3.jpeg);
+    background-size: cover;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sub>a{
+    text-decoration: none;
+    color: white;
+}
+
+.sub>a>button{
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: none;
+    border: 4px solid white;
+    padding: 9px 40px;
+}
+
+.footer{
+    height: 200px;
+    background-image: url(../image/사진4.jpeg);
+    background-size: cover;
+}
+
+@media screen and (min-width: 768px) {
+    .content{
+        height: 500px;
+        width: 50%;
+        float: left;
+    }
+
+    .subject{
+        padding: 0 65px;
+    }
+            
+    .sub{
+        height: 250px;
+        width: 50%;
+        float: right;
+    }
+
+    .footer{
+        height: 250px;
+        width: 50%;
+        float: right;
+    }
+
+}
+
+@media screen and (min-width : 1024px) {
+    .main-img{
+        height: 800px;
+        width: 50%;
+        float: left;
+    }
+
+    .subject{
+        padding: 0 65px;
+        height: 400px;
+        width: 50%;
+        float: right;
+    }
+            
+    .content{
+        height: 400px;
+        width: 25%;
+        float: left;
+    }
+
+
+    .sub{
+        height: 200px;
+        width: 25%;
+        float: right;
+    }
+
+    .footer{
+        height: 200px;
+        width: 25%;
+        float: right;
+    }  
+}

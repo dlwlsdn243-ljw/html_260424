@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>popup => window 메서드 종류 (alert() / prompt() : input / confirm() : 확인/취소)</h1>
+    <h1>window.open('url', 'window name', option(size, scroll)) window.close()</h1>
+
+    <button onclick="openWindow()">popup 열기</button>
+    <button onclick="closeWindow()">popup 닫기</button>
+    <button onclick="alertEx()">alert</button>
+    <button onclick="promptEx()">prompt</button>
+    <button onclick="confirmEx()">confirm</button>
+
+    <h3 id="h3"></h3>
+
+    <script>
+        let popup;
+        function openWindow(){
+            popup = window.open('01_BOM.html', 'mypop', 'width=400', 'height=500')
+        }
+
+        function closeWindow(){
+            if(popup){
+                popup.close();
+            }
+        }
+
+        function alertEx(){
+            alertEx('alert 창 입니다.')
+        }
+
+        function promptEx(){
+            let name = prompt('값을 입력해 주세요.')
+            document.getElementById('h3').innerText=name
+        }
+
+        function confirmEx(){
+            let con = confirm('확인하시겠습니까?')
+            /*
+            if(con){
+                document.getElementById('h3').innerHTML = '확인'
+            }else{
+                 document.getElementById('h3').innerHTML = '취소'
+            }
+             */
+
+            document.getElementById('h3').innerText = con ? '확인' : '취소'
+        }
+    </script>
+
+</body>
+</html>
